@@ -24,7 +24,7 @@ async def bright(client, message):
 async def mix(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text(downloading)
+    msg = await message.reply_text("downloading")
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
