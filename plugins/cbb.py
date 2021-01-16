@@ -32,8 +32,8 @@ async def cb_handler(client, query):
         await query.message.edit("**select an type**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="box",callback_data="box"),InlineKeyboardButton(text="normal",callback_data="normal")],[InlineKeyboardButton(text="Gaussian",callback_data="gas")]]))
 
     elif "border" in query.data:
-        await query.message.edit("**select border**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="â­•ï¸ RED â­•ï¸", callback_data = "red"), InlineKeyboardButton(text="ðŸ’šGreenðŸ’š", callback_data = "green")],
-                                                    [InlineKeyboardButton(text="ðŸ–¤BlackðŸ–¤", callback_data="black"), InlineKeyboardButton(text="ðŸ’™BlueðŸ’™",callback_data = "blue")]]))     
+        await query.message.edit("**select border**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="🔴 RED 🔴", callback_data = "red"), InlineKeyboardButton(text="🟢 Green 🟢", callback_data = "green")],
+                                                    [InlineKeyboardButton(text="⚫ Black ⚫", callback_data="black"), InlineKeyboardButton(text="🔵 Blue 🔵",callback_data = "blue")]]))     
     elif "green" in query.data:
         await query.message.delete()
         await green_border(client, query.message)
