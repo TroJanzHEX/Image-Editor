@@ -26,37 +26,29 @@ async def cb_handler(client, query):
 
     elif "circle" in query.data:
         await query.message.delete()
-        await circle (client, query.message)
+        await circle(client, query.message)
    
     elif "blur" in query.data:
         await query.message.edit("**select an type**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="box",callback_data="box"),InlineKeyboardButton(text="normal",callback_data="normal")],[InlineKeyboardButton(text="Gaussian",callback_data="gas")]]))
 
-
-
     elif "border" in query.data:
         await query.message.edit("**select border**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="â­•ï¸ RED â­•ï¸", callback_data = "red"), InlineKeyboardButton(text="ðŸ’šGreenðŸ’š", callback_data = "green")],
-                                                    [InlineKeyboardButton(text="ðŸ–¤BlackðŸ–¤", callback_data="black"), InlineKeyboardButton(text="ðŸ’™BlueðŸ’™",callback_data = "blue")]]))
-       
-        
-                         
-      
-        
-        
+                                                    [InlineKeyboardButton(text="ðŸ–¤BlackðŸ–¤", callback_data="black"), InlineKeyboardButton(text="ðŸ’™BlueðŸ’™",callback_data = "blue")]]))     
     elif "green" in query.data:
         await query.message.delete()
         await green_border(client, query.message)
 
     elif "blue" in query.data:
         await query.message.delete()
-        await blue_border (client, query.message)
+        await blue_border(client, query.message)
 
     elif "red" in query.data:
         await query.message.delete()
-        await red_border (client, query.message)
+        await red_border(client, query.message)
 
     elif "black" in query.data:
         await query.message.delete()
-        await black_border (client, query.message)
+        await black_border(client, query.message)
    
     elif "stick" in query.data:
         await query.message.delete()
@@ -66,19 +58,17 @@ async def cb_handler(client, query):
         await query.message.edit_text("**select the degree**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="180", callback_data = "180"), InlineKeyboardButton(text="90", callback_data = "90")],
                             [InlineKeyboardButton(text="270", callback_data="270")]]))
 
-
-
     elif "90" in query.data:
          await query.message.delete()
-         await rotate_90 (client, query.message)
+         await rotate_90(client, query.message)
 
     elif "180" in query.data:
         await query.message.delete()
-        await rotate_180 (client, query.message)
+        await rotate_180(client, query.message)
 
     elif "270" in query.data:
         await query.message.delete()
-        await rotate_270 (client, query.message)
+        await rotate_270(client, query.message)
 
     elif "contrast" in query.data:
         await query.message.delete()
@@ -91,7 +81,7 @@ async def cb_handler(client, query):
     
     elif "box" in query.data:
         await query.message.delete()
-        await box_blur (client, query.message)
+        await box_blur(client, query.message)
 
     elif "gas" in query.data:
         await query.message.delete()
