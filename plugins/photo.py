@@ -4,7 +4,7 @@ import pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-@Client.on_message(filters.photo)
+@Client.on_message(filters.photo & filters.private)
 async def photo(client, message):
        await client.send_message(
             chat_id=message.chat.id,
