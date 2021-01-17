@@ -1,3 +1,5 @@
+# By @TroJanzHEX
+
 import pyrogram
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from PIL import Image,ImageEnhance,ImageDraw,ImageFilter,ImageOps
@@ -8,12 +10,12 @@ import cv2
 async def circle(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text("downloading")
+    msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
         )
-    await msg.edit("processing")
+    await msg.edit("Processing Image...")
     img=Image.open(a).convert("RGB")
     npImage = np.array(img)
     h,w = img.size
@@ -25,33 +27,33 @@ async def circle(client, message):
     Image.fromarray(npImage).save('circle.png')
     await msg.delete()
     await message.reply_chat_action("upload_photo")
-    await message.reply_photo("circle.png")
+    await message.reply_to_message.reply_photo("circle.png", quote=True)
 
 
 
 async def sticker(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text("downloading")
+    msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
         )
-    await msg.edit("processing")
+    await msg.edit("Processing Image...")
     os.rename(a,"sticker.webp")
     await msg.delete()
-    await  message.reply_sticker("sticker.webp")
+    await  message.reply_to_message.reply_sticker("sticker.webp", quote=True)
 
 
 async def contrast(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text("Downloading")
+    msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
         )
-    await msg.edit("processing")
+    await msg.edit("Processing Image...")
     image=Image.open(a)
     contrast=ImageEnhance.Contrast(image)
     contrast.enhance(1.5).save('contrast.jpg')
@@ -59,7 +61,7 @@ async def contrast(client, message):
     
     await message.reply_chat_action("upload_photo")
   
-    await message.reply_photo("contrast.jpg")
+    await message.reply_to_message.reply_photo("contrast.jpg", quote=True)
 
 
 
@@ -87,18 +89,18 @@ def sepia(img):
 async def sepia_mode(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text("Downloading")
+    msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
         )
-    await msg.edit("processing")
+    await msg.edit("Processing Image...")
     image=Image.open(a)
     new_img = sepia(image)
     new_img.save("sepia.jpg")
     await msg.delete()
     await message.reply_chat_action("upload_photo")
-    await message.reply_photo("sepia.jpg")
+    await message.reply_to_message.reply_photo("sepia.jpg", quote=True)
 
 
 def dodgeV2(x, y):
@@ -108,12 +110,12 @@ def dodgeV2(x, y):
 async def pencil(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text("Downloading")
+    msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
         )
-    await msg.edit("processing")
+    await msg.edit("Processing Image...")
     img = cv2.imread(a)
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     img_invert = cv2.bitwise_not(img_gray)
@@ -122,7 +124,7 @@ async def pencil(client, message):
     cv2.imwrite("pencil.jpg", final_img)
     await msg.delete()
     await message.reply_chat_action("upload_photo")
-    await message.reply_photo("pencil.jpg")
+    await message.reply_to_message.reply_photo("pencil.jpg", quote=True)
 
 
 
@@ -141,12 +143,12 @@ def color_quantization(img, k):
 async def cartoon(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text("Downloading")
+    msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
         )
-    await msg.edit("processing")
+    await msg.edit("Processing Image...")
     img = cv2.imread(a)
     edges = cv2.Canny(img, 100, 200)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -158,4 +160,4 @@ async def cartoon(client, message):
     cv2.imwrite("kang.jpg",img_1)
     await msg.delete()
     await message.reply_chat_action("upload_photo")
-    await message.reply_photo("kang.jpg")
+    await message.reply_to_message.reply_photo("kang.jpg", quote=True)
