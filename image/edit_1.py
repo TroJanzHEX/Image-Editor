@@ -1,5 +1,6 @@
 # By @TroJanzHEX
 import pyrogram
+import cv2
 from PIL import Image,ImageEnhance,ImageFilter
 
 
@@ -41,19 +42,18 @@ async def mix(client, message):
 async def black_white(client, message):
     media = message
     download_location = "./DOWNLOADS" + "/" + str(message.from_user.id) + ".jpg"
-    msg = await message.reply_text("downloading")
+    msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
     a  =   await client.download_media(
            message=media.reply_to_message,
            file_name=download_location
         )
-    await msg.edit("processing")
-    image_file = Image.open(a)
-    image_file = image_file.convert('1') 
-    image_file.save('black_white.jpg')
+    await msg.edit("Processing Image...")
+    image_file =  cv2.imread(a)
+    grayImage = cv2.cvtColor(image_file, cv2.COLOR_BGR2GRAY)
+    cv2.imwrite("black_white.jpg",grayImage)
     await msg.delete()
     await message.reply_chat_action("upload_photo")
-   
-    await message.reply_photo("black_white.jpg")
+    await message.reply_to_message.reply_photo("black_white.jpg", quote=True)
     
 async def normal_blur(client, message):
     media = message
