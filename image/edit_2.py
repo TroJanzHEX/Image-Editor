@@ -10,9 +10,9 @@ import shutil
 
 
 async def circle(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
     if not message.reply_to_message.empty:
@@ -42,9 +42,9 @@ async def circle(client, message):
         pass
 
 async def sticker(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sticker.webp"
     if not message.reply_to_message.empty:
@@ -65,9 +65,9 @@ async def sticker(client, message):
         pass
 
 async def contrast(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "contrast.jpg"
     if not message.reply_to_message.empty:
@@ -113,9 +113,9 @@ def sepia(img):
     return new_img
 
 async def sepia_mode(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sepia.jpg"
     if not message.reply_to_message.empty:
@@ -143,9 +143,9 @@ def dodgeV2(x, y):
 
 
 async def pencil(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "pencil.jpg"
     if not message.reply_to_message.empty:
@@ -185,9 +185,9 @@ def color_quantization(img, k):
 
 
 async def cartoon(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "kang.jpg"
     if not message.reply_to_message.empty:

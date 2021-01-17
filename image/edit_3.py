@@ -7,9 +7,9 @@ from PIL import Image,ImageOps
 
 
 async def black_border(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-black-border.png"
     if not message.reply_to_message.empty:
@@ -34,9 +34,9 @@ async def black_border(client, message):
         
         
 async def green_border(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-green-border.png"
     if not message.reply_to_message.empty:
@@ -61,9 +61,9 @@ async def green_border(client, message):
         
         
 async def blue_border(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-blue-border.png"
     if not message.reply_to_message.empty:
@@ -88,9 +88,9 @@ async def blue_border(client, message):
         
         
 async def red_border(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-red-border.png"
     if not message.reply_to_message.empty:

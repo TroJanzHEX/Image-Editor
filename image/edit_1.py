@@ -9,9 +9,9 @@ from PIL import Image,ImageEnhance,ImageFilter
 
 
 async def bright(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "brightness.jpg"
     if not message.reply_to_message.empty:
@@ -35,9 +35,9 @@ async def bright(client, message):
         pass
       
 async def mix(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "mix.jpg"
     if not message.reply_to_message.empty:
@@ -63,9 +63,9 @@ async def mix(client, message):
         
         
 async def black_white(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "black_white.jpg"
     if not message.reply_to_message.empty:
@@ -90,9 +90,9 @@ async def black_white(client, message):
 
         
 async def normal_blur(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "BlurImage.jpg"
     if not message.reply_to_message.empty:
@@ -117,9 +117,9 @@ async def normal_blur(client, message):
         
         
 async def g_blur(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "gaussian_blur.jpg"
     if not message.reply_to_message.empty:
@@ -144,9 +144,9 @@ async def g_blur(client, message):
         
         
 async def box_blur(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "box_blur.jpg"
     if not message.reply_to_message.empty:

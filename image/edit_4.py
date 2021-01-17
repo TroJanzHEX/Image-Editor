@@ -7,9 +7,9 @@ import os
 
 
 async def rotate_90(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_90.jpg"
     if not message.reply_to_message.empty:
@@ -34,9 +34,9 @@ async def rotate_90(client, message):
         
         
 async def rotate_180(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_180.jpg"
     if not message.reply_to_message.empty:
@@ -61,9 +61,9 @@ async def rotate_180(client, message):
         
         
 async def rotate_270(client, message):
-    userid = str(message.from_user.id)
+    userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.mkdir(f"./DOWNLOADS/{userid}")
+        os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_270.jpg"
     if not message.reply_to_message.empty:
