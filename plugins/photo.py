@@ -1,4 +1,5 @@
 # By @TroJanzHEX
+
 import os
 import pyrogram
 from pyrogram import Client, filters
@@ -8,13 +9,13 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 async def photo(client, message):
        await client.send_message(
             chat_id=message.chat.id,
-            text="select a method",
+            text="Select your required mode from below!ㅤㅤ",
             reply_markup = InlineKeyboardMarkup(
  [
     [
-        InlineKeyboardButton(text = "BRIGHT",callback_data="bright"),
-        InlineKeyboardButton(text = "MIXED", callback_data = "mix"),
-        InlineKeyboardButton(text = "B&W",callback_data = "b|w"),
+        InlineKeyboardButton(text = "ㅤㅤBRIGHTㅤㅤ",callback_data="bright"),
+        InlineKeyboardButton(text = "ㅤㅤMIXEDㅤㅤ", callback_data = "mix"),
+        InlineKeyboardButton(text = "ㅤㅤB&Wㅤㅤ",callback_data = "b|w"),
     ],
     [
         InlineKeyboardButton(text = "CIRCLE", callback_data = "circle"),
