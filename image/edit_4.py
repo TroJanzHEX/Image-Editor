@@ -1,6 +1,7 @@
 # By @TroJanzHEX
 
 import pyrogram
+import shutil
 import cv2
 import os
 
@@ -14,7 +15,7 @@ async def rotate_90(client, message):
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
-               message=media.reply_to_message,
+               message=message.reply_to_message,
                file_name=download_location
             )
         await msg.edit("Processing Image...")
@@ -41,7 +42,7 @@ async def rotate_180(client, message):
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
-               message=media.reply_to_message,
+               message=message.reply_to_message,
                file_name=download_location
             )
         await msg.edit("Processing Image...")
@@ -68,7 +69,7 @@ async def rotate_270(client, message):
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
-               message=media.reply_to_message,
+               message=message.reply_to_message,
                file_name=download_location
             )
         await msg.edit("Processing Image...")
