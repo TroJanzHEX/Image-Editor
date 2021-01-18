@@ -1,7 +1,7 @@
 # By @TroJanzHEX
 import pyrogram
 from image.edit_1 import bright,mix,black_white,g_blur,normal_blur,box_blur
-from image.edit_2 import circle, sticker,contrast,sepia_mode,pencil,cartoon
+from image.edit_2 import circle, sticker, edge_curved, contrast,sepia_mode,pencil,cartoon
 from image.edit_3 import green_border,blue_border,black_border,red_border
 from image.edit_4 import rotate_90,rotate_180,rotate_270
 from pyrogram import Client 
@@ -29,10 +29,10 @@ async def cb_handler(client, query):
         await circle(client, query.message)
    
     elif "blur" in query.data:
-        await query.message.edit("**select an type**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="box",callback_data="box"),InlineKeyboardButton(text="normal",callback_data="normal")],[InlineKeyboardButton(text="Gaussian",callback_data="gas")]]))
+        await query.message.edit("**Select a Type**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="box",callback_data="box"),InlineKeyboardButton(text="normal",callback_data="normal")],[InlineKeyboardButton(text="Gaussian",callback_data="gas")]]))
 
     elif "border" in query.data:
-        await query.message.edit("**select border**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="🔴 RED 🔴", callback_data = "red"), InlineKeyboardButton(text="🟢 Green 🟢", callback_data = "green")],
+        await query.message.edit("**Select Border**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="🔴 RED 🔴", callback_data = "red"), InlineKeyboardButton(text="🟢 Green 🟢", callback_data = "green")],
                                                     [InlineKeyboardButton(text="⚫ Black ⚫", callback_data="black"), InlineKeyboardButton(text="🔵 Blue 🔵",callback_data = "blue")]]))     
     elif "green" in query.data:
         await query.message.delete()
@@ -51,11 +51,18 @@ async def cb_handler(client, query):
         await black_border(client, query.message)
    
     elif "stick" in query.data:
+        await query.message.edit("**Select a Type**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Normal",callback_data="normal_sticker"),InlineKeyboardButton(text="Edge Curved",callback_data="curved_sticker")]]))
+
+    elif "normal_sticker" in query.data:
         await query.message.delete()
-        await sticker(client,query.message)
+        await sticker(client, query.message)
+
+    elif "curved_sticker" in query.data:
+        await query.message.delete()
+        await edge_curved(client, query.message)
 
     elif "rotate" in query.data:
-        await query.message.edit_text("**select the degree**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="180", callback_data = "180"), InlineKeyboardButton(text="90", callback_data = "90")],
+        await query.message.edit_text("**Select the Degree**",reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="180", callback_data = "180"), InlineKeyboardButton(text="90", callback_data = "90")],
                             [InlineKeyboardButton(text="270", callback_data="270")]]))
 
     elif "90" in query.data:
@@ -76,8 +83,6 @@ async def cb_handler(client, query):
 
     elif "close_e" in query.data:
         await query.message.delete()
-        
-    
     
     elif "box" in query.data:
         await query.message.delete()
