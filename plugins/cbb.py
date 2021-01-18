@@ -51,13 +51,13 @@ async def cb_handler(client, query):
         await black_border(client, query.message)
    
     elif "stick" in query.data:
-        await query.message.edit("**Select a Type**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Normal",callback_data="normal_sticker"),InlineKeyboardButton(text="Edge Curved",callback_data="curved_sticker")]]))
+        await query.message.edit("**Select a Type**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Normal",callback_data="stkr"),InlineKeyboardButton(text="Edge Curved",callback_data="cur_stkr")]]))
 
-    elif "normal_sticker" in query.data:
+    elif "stkr" in query.data:
         await query.message.delete()
         await sticker(client, query.message)
 
-    elif "curved_sticker" in query.data:
+    elif "cur_stkr" in query.data:
         await query.message.delete()
         await edge_curved(client, query.message)
 
