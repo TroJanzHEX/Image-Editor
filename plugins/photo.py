@@ -13,14 +13,14 @@ async def photo(client, message):
             reply_markup = InlineKeyboardMarkup(
  [
     [
-        InlineKeyboardButton(text = "ㅤㅤBRIGHTㅤㅤ",callback_data="bright"),
-        InlineKeyboardButton(text = "ㅤㅤMIXEDㅤㅤ", callback_data = "mix"),
-        InlineKeyboardButton(text = "ㅤㅤB&Wㅤㅤ",callback_data = "b|w"),
+        InlineKeyboardButton(text = "BRIGHT",callback_data="bright"),
+        InlineKeyboardButton(text = "MIXED", callback_data = "mix"),
+        InlineKeyboardButton(text = "B&W",callback_data = "b|w"),
     ],
     [
         InlineKeyboardButton(text = "CIRCLE", callback_data = "circle"),
         InlineKeyboardButton(text = "BLUR", callback_data="blur"),
-        InlineKeyboardButton(text = "Border", callback_data="border"),
+        InlineKeyboardButton(text = "BORDER", callback_data="border"),
     ],
     [
         InlineKeyboardButton(text = "STICKER", callback_data = "stick"),
