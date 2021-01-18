@@ -2,7 +2,7 @@
 
 import pyrogram
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from PIL import Image,ImageEnhance,ImageDraw,ImageFilter,ImageOps
+from PIL import Image, ImageEnhance, ImageDraw, ImageFilter, ImageOps
 import numpy as np
 import os
 import cv2
@@ -17,7 +17,7 @@ async def circle(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
+        a = await client.download_media(
                message=message.reply_to_message,
                file_name=download_location
             )
@@ -49,13 +49,52 @@ async def sticker(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sticker.webp"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
+        a = await client.download_media(
                message=message.reply_to_message,
                file_name=download_location
             )
         await msg.edit("Processing Image...")
         os.rename(a,edit_img_loc)
         await  message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
+        await msg.delete()
+    else:
+        await message.reply_text("Why did you delete that??")
+    try:
+        shutil.rmtree(f"./DOWNLOADS/{userid}")
+    except:
+        pass
+
+def add_corners(im, rad):
+    circle = Image.new('L', (rad * 2, rad * 2), 0)
+    draw = ImageDraw.Draw(circle)
+    draw.ellipse((0, 0, rad * 2, rad * 2), fill = 255)
+    alpha = Image.new('L', im.size, 255)
+    w, h = im.size
+    alpha.paste(circle.crop((0, 0, rad, rad)), (0, 0))
+    alpha.paste(circle.crop((0, rad, rad, rad * 2)), (0, h-rad))
+    alpha.paste(circle.crop((rad, 0, rad * 2, rad)), (w-rad, 0))
+    alpha.paste(circle.crop((rad, rad, rad * 2, rad * 2)), (w-rad, h-rad))
+    im.putalpha(alpha)
+    return im
+
+async def edge_curved(client, message):
+    userid = str(message.chat.id)
+    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+        os.makedirs(f"./DOWNLOADS/{userid}")
+    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "edge_curved.webp"
+    if not message.reply_to_message.empty:
+        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+        a = await client.download_media(
+               message=message.reply_to_message,
+               file_name=download_location
+            )
+        await msg.edit("Processing Image...")
+        im = Image.open(a)
+        im = add_corners(im, 100)
+        im.save(edit_img_loc)
+        await message.reply_chat_action("upload_photo")  
+        await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
         await msg.delete()
     else:
         await message.reply_text("Why did you delete that??")
@@ -72,7 +111,7 @@ async def contrast(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "contrast.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
+        a = await client.download_media(
                message=message.reply_to_message,
                file_name=download_location
             )
@@ -120,7 +159,7 @@ async def sepia_mode(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sepia.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
+        a = await client.download_media(
                message=message.reply_to_message,
                file_name=download_location
             )
@@ -150,7 +189,7 @@ async def pencil(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "pencil.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
+        a = await client.download_media(
                message=message.reply_to_message,
                file_name=download_location
             )
@@ -192,7 +231,7 @@ async def cartoon(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "kang.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
+        a = await client.download_media(
                message=message.reply_to_message,
                file_name=download_location
             )
