@@ -94,7 +94,7 @@ async def edge_curved(client, message):
         im = add_corners(im, 100)
         im.save(edit_img_loc)
         await message.reply_chat_action("upload_photo")  
-        await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
+        await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
         await msg.delete()
     else:
         await message.reply_text("Why did you delete that??")
