@@ -1,7 +1,7 @@
 # By @TroJanzHEX
 import pyrogram
 from image.edit_1 import bright, mix, black_white, g_blur, normal_blur, box_blur
-from image.edit_2 import circle, sticker, edge_curved, contrast, sepia_mode, pencil, cartoon
+from image.edit_2 import circle_with_bg, circle_without_bg, sticker, edge_curved, contrast, sepia_mode, pencil, cartoon
 from image.edit_3 import green_border, blue_border, black_border, red_border
 from image.edit_4 import rotate_90, rotate_180, rotate_270, inverted, round_sticker
 from image.edit_5 import (
@@ -39,8 +39,21 @@ async def cb_handler(client, query):
         await black_white(client, query.message)
 
     elif query.data == "circle":
+        await query.message.edit_text(
+            "**Select required mode**",
+            reply_markup = InlineKeyboardMarkup([
+                [InlineKeyboardButton(text="WITH BG", callback_data ="circlewithbg"),
+                    InlineKeyboardButton(text="WITHOUT BG", callback_data ="circlewithoutbg")]
+            ])
+        )
+
+    elif query.data == "circlewithbg":
         await query.message.delete()
-        await circle(client, query.message)
+        await circle_with_bg(client, query.message)
+
+    elif query.data == "circlewithoutbg":
+        await query.message.delete()
+        await circle_without_bg(client, query.message)
 
     elif query.data == "blur":
         await query.message.edit("**Select a Type**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="box", callback_data="box"), InlineKeyboardButton(text="normal", callback_data="normal")], [InlineKeyboardButton(text="Gaussian", callback_data="gas")]]))
