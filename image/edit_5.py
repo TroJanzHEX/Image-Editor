@@ -10,12 +10,12 @@ import subprocess
 import glitch_this
 
 
-async def orgglitch_1(client, message):
+async def normalglitch_1(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "orgglitch_1.jpg"
+    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "normalglitch_1.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
@@ -37,12 +37,12 @@ async def orgglitch_1(client, message):
         pass
         
         
-async def orgglitch_2(client, message):
+async def normalglitch_2(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "orgglitch_2.jpg"
+    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "normalglitch_2.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
@@ -64,12 +64,12 @@ async def orgglitch_2(client, message):
         pass
         
         
-async def orgglitch_3(client, message):
+async def normalglitch_3(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "orgglitch_3.jpg"
+    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "normalglitch_3.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
@@ -91,12 +91,12 @@ async def orgglitch_3(client, message):
         pass
 
 
-async def orgglitch_4(client, message):
+async def normalglitch_4(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "orgglitch_4.jpg"
+    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "normalglitch_4.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
@@ -118,12 +118,12 @@ async def orgglitch_4(client, message):
         pass
 
 
-async def orgglitch_5(client, message):
+async def normalglitch_5(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
     download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "orgglitch_5.jpg"
+    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "normalglitch_5.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
         a  =   await client.download_media(
