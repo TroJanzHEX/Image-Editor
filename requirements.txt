@@ -3,4 +3,5 @@ tgcrypto
 Pillow
 pyrogram
 glitch_this
+requests
 opencv-python-headless

@@ -1,12 +1,19 @@
 # By @TroJanzHEX
 
-import pyrogram
-import shutil
-import cv2
-import os
+
 import io
-from PIL import Image, ImageOps, ImageDraw
+import os
+import cv2
+import shutil
+import requests
+import pyrogram
 import numpy as np 
+from PIL import Image, ImageOps, ImageDraw
+
+if bool(os.environ.get("WEBHOOK", False)):
+    from sample_config import Config
+else:
+    from config import Config
 
 
 async def rotate_90(client, message):
@@ -160,4 +167,137 @@ async def inverted(client, message):
     try:
         shutil.rmtree(f"./DOWNLOADS/{userid}")
     except:
-        pass    
+        pass
+
+
+async def removebg_plain(client, message):
+    if not (Config.RemoveBG_API == ""):
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgplain.png"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+
+            response = requests.post(
+                'https://api.remove.bg/v1.0/removebg',
+                files={'image_file': open(download_location, 'rb')},
+                data={'size': 'auto'},
+                headers={'X-Api-Key': Config.RemoveBG_API},
+            )
+            if response.status_code == requests.codes.ok:
+                with open(f'{edit_img_loc}', 'wb') as out:
+                    out.write(response.content)
+            else:
+                await message.reply_to_message.reply_text("Check if your api is correct", quote=True)
+                return
+                
+            await message.reply_chat_action("upload_document")
+            await message.reply_to_message.reply_document(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    else:
+        await message.reply_to_message.reply_text(
+            "Get the api from https://www.remove.bg/b/background-removal-api and add in Config Var",
+            quote=True,
+            disable_web_page_preview=True)
+            
+            
+async def removebg_white(client, message):
+    if not (Config.RemoveBG_API == ""):
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgwhite.png"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+
+            response = requests.post(
+                'https://api.remove.bg/v1.0/removebg',
+                files={'image_file': open(download_location, 'rb')},
+                data={'size': 'auto'},
+                headers={'X-Api-Key': Config.RemoveBG_API},
+            )
+            if response.status_code == requests.codes.ok:
+                with open(f'{edit_img_loc}', 'wb') as out:
+                    out.write(response.content)
+            else:
+                await message.reply_to_message.reply_text("Check if your api is correct", quote=True)
+                return
+                
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    else:
+        await message.reply_to_message.reply_text(
+            "Get the api from https://www.remove.bg/b/background-removal-api and add in Config Var",
+            quote=True,
+            disable_web_page_preview=True)            
+            
+            
+async def removebg_sticker(client, message):
+    if not (Config.RemoveBG_API == ""):
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgsticker.webp"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+
+            response = requests.post(
+                'https://api.remove.bg/v1.0/removebg',
+                files={'image_file': open(download_location, 'rb')},
+                data={'size': 'auto'},
+                headers={'X-Api-Key': Config.RemoveBG_API},
+            )
+            if response.status_code == requests.codes.ok:
+                with open(f'{edit_img_loc}', 'wb') as out:
+                    out.write(response.content)
+            else:
+                await message.reply_to_message.reply_text("Check if your api is correct", quote=True)
+                return
+                
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    else:
+        await message.reply_to_message.reply_text(
+            "Get the api from https://www.remove.bg/b/background-removal-api and add in Config Var",
+            quote=True,
+            disable_web_page_preview=True)               
+            

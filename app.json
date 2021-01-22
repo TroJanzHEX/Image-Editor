@@ -24,6 +24,11 @@
             "description": "Your APP ID from my.telegram.org",
             "value": ""
         },
+        "RemoveBG_API": {
+            "description": "Get this api from https://www.remove.bg/b/background-removal-api",
+            "value": ""
+            "required": false
+        },
         "WEBHOOK": {
             "description": "Set this Value to 'ANYTHING'. Don't Change it",
             "value": "ANYTHING"

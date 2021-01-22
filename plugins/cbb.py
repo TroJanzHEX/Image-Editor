@@ -3,7 +3,7 @@ import pyrogram
 from image.edit_1 import bright, mix, black_white, g_blur, normal_blur, box_blur
 from image.edit_2 import circle_with_bg, circle_without_bg, sticker, edge_curved, contrast, sepia_mode, pencil, cartoon
 from image.edit_3 import green_border, blue_border, black_border, red_border
-from image.edit_4 import rotate_90, rotate_180, rotate_270, inverted, round_sticker
+from image.edit_4 import rotate_90, rotate_180, rotate_270, inverted, round_sticker, removebg_white, removebg_plain, removebg_sticker
 from image.edit_5 import (
     orgglitch_1,
     orgglitch_2,
@@ -147,7 +147,7 @@ async def cb_handler(client, query):
         
     elif query.data == "glitch":
         await query.message.edit_text(
-            "**Select required mode**",
+            "**Select required mode**ㅤㅤㅤㅤ",
             reply_markup = InlineKeyboardMarkup([
                 [InlineKeyboardButton(text="NORMAL", callback_data ="normalglitch"),
                     InlineKeyboardButton(text="SCAN LINES", callback_data ="scanlineglitch")]
@@ -218,7 +218,31 @@ async def cb_handler(client, query):
     elif query.data == "scanlineglitch5":
         await query.message.delete()
         await scanlineglitch_5(client, query.message) 
+
+
+   
+    elif query.data == "removebg":
+        await query.message.edit_text(
+            "**Select required mode**ㅤㅤㅤㅤ",
+            reply_markup = InlineKeyboardMarkup([
+                [InlineKeyboardButton(text="WITH WHITE BG", callback_data ="rmbgwhite"),
+                    InlineKeyboardButton(text="WITHOUT BG", callback_data ="rmbgplain")],
+                [InlineKeyboardButton(text="STICKER", callback_data ="rmbgsticker")]
+            ])
+        )      
         
+    elif query.data == "rmbgwhite":
+        await query.message.delete()
+        await removebg_white(client, query.message)
+
+    elif query.data == "rmbgplain":
+        await query.message.delete()
+        await removebg_plain(client, query.message)
+
+    elif query.data == "rmbgsticker":
+        await query.message.delete()
+        await removebg_sticker(client, query.message)
+
 
     elif query.data == "start_data":
 
