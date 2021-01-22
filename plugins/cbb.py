@@ -4,6 +4,19 @@ from image.edit_1 import bright, mix, black_white, g_blur, normal_blur, box_blur
 from image.edit_2 import circle, sticker, edge_curved, contrast, sepia_mode, pencil, cartoon
 from image.edit_3 import green_border, blue_border, black_border, red_border
 from image.edit_4 import rotate_90, rotate_180, rotate_270, inverted, round_sticker
+from image.edit_5 import (
+    orgglitch_1,
+    orgglitch_2,
+    orgglitch_3,
+    orgglitch_4,
+    orgglitch_5,
+    scanlineglitch_1,
+    scanlineglitch_2,
+    scanlineglitch_3,
+    scanlineglitch_4,
+    scanlineglitch_5
+)
+
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -117,6 +130,82 @@ async def cb_handler(client, query):
     elif query.data == "cartoon":
         await query.message.delete()
         await cartoon(client, query.message)
+
+        
+    elif query.data == "glitch":
+        await query.message.edit_text(
+            "**Select required mode**",
+            reply_markup = InlineKeyboardMarkup([
+                [InlineKeyboardButton(text="NORMAL", callback_data ="normalglitch"),
+                    InlineKeyboardButton(text="SCAN LINES", callback_data ="scanlineglitch")]
+            ])
+        )
+
+    elif query.data == "normalglitch":
+        await query.message.edit_text(
+            "**Select Glitch power level**",
+            reply_markup = InlineKeyboardMarkup([
+                [InlineKeyboardButton(text="1", callback_data ="normalglitch1"),
+                    InlineKeyboardButton(text="2", callback_data ="normalglitch2"),
+                        InlineKeyboardButton(text="3", callback_data ="normalglitch3")],
+                [InlineKeyboardButton(text="4", callback_data ="normalglitch4"),
+                    InlineKeyboardButton(text="5", callback_data ="normalglitch5")]
+            ])
+        )
+        
+    elif query.data == "scanlineglitch":
+        await query.message.edit_text(
+            "**Select Glitch power level**",
+            reply_markup = InlineKeyboardMarkup([
+                [InlineKeyboardButton(text="1", callback_data ="scanlineglitch1"),
+                    InlineKeyboardButton(text="2", callback_data ="scanlineglitch2"),
+                        InlineKeyboardButton(text="3", callback_data ="scanlineglitch3")],
+                [InlineKeyboardButton(text="4", callback_data ="scanlineglitch4"),
+                    InlineKeyboardButton(text="5", callback_data ="scanlineglitch5")]
+            ])
+        )
+
+    elif query.data == "normalglitch1":
+        await query.message.delete()
+        await orgglitch_1(client, query.message)
+
+    elif query.data == "normalglitch2":
+        await query.message.delete()
+        await orgglitch_2(client, query.message)
+
+    elif query.data == "normalglitch3":
+        await query.message.delete()
+        await orgglitch_3(client, query.message)
+
+    elif query.data == "normalglitch4":
+        await query.message.delete()
+        await orgglitch_4(client, query.message)
+
+    elif query.data == "normalglitch5":
+        await query.message.delete()
+        await orgglitch_5(client, query.message)
+        
+        
+    elif query.data == "scanlineglitch1":
+        await query.message.delete()
+        await scanlineglitch_1(client, query.message)
+
+    elif query.data == "scanlineglitch2":
+        await query.message.delete()
+        await scanlineglitch_2(client, query.message)
+
+    elif query.data == "scanlineglitch3":
+        await query.message.delete()
+        await scanlineglitch_3(client, query.message)
+
+    elif query.data == "scanlineglitch4":
+        await query.message.delete()
+        await scanlineglitch_4(client, query.message)
+
+    elif query.data == "scanlineglitch5":
+        await query.message.delete()
+        await scanlineglitch_5(client, query.message) 
+        
 
     elif query.data == "start_data":
 
