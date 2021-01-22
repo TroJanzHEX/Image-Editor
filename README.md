@@ -1,7 +1,7 @@
 # Image Editor
 
 <p align="center">
-  <a href="https://github.com/TroJanzHEX/Subtitle-Translator/fork">
+  <a href="https://github.com/TroJanzHEX/Image-Editor/fork">
     <img src="https://img.shields.io/github/forks/TroJanzHEX/Image-Editor?label=Fork&style=social">
 
   </a>
@@ -11,7 +11,7 @@
 
   </a>  
   
-  <a href="https://github.com/TroJanzHEX/Subtitle-Translator/stargazers">
+  <a href="https://github.com/TroJanzHEX/Image-Editor/stargazers">
     <img src="https://img.shields.io/github/stars/TroJanzHEX/Image-Editor?style=social">
 
   </a>
