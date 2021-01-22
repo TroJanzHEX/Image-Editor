@@ -12,12 +12,10 @@ else:
     from config import Config
 
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     plugins = dict(
         root="plugins"
     )
-
-    
 
     app = Client(
         "TroJanz",
@@ -28,4 +26,3 @@ if __name__ == "__main__" :
         workers=300
     )
     app.run()
-    

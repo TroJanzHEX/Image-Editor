@@ -1,8 +1,8 @@
 # By @TroJanzHEX
 import pyrogram
-from pyrogram import Client 
+from pyrogram import Client
 from pyrogram import filters
-from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from script import script
 
 
@@ -18,12 +18,13 @@ async def start(client, message):
                     InlineKeyboardButton("ABOUT", callback_data="about_data"),
                 ],
                 [
-                    InlineKeyboardButton("SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")  
+                    InlineKeyboardButton(
+                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")
                 ]
             ]
         ),
         reply_to_message_id=message.message_id
-    )    
+    )
 
 
 @Client.on_message(filters.command(["help"]) & filters.private)
@@ -38,12 +39,14 @@ async def help(client, message):
                     InlineKeyboardButton("ABOUT", callback_data="about_data"),
                 ],
                 [
-                    InlineKeyboardButton("SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")  
+                    InlineKeyboardButton(
+                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")
                 ]
             ]
         ),
         reply_to_message_id=message.message_id
     )
+
 
 @Client.on_message(filters.command(["about"]) & filters.private)
 async def about(client, message):
@@ -57,9 +60,10 @@ async def about(client, message):
                     InlineKeyboardButton("START", callback_data="start_data"),
                 ],
                 [
-                    InlineKeyboardButton("SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")  
+                    InlineKeyboardButton(
+                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")
                 ]
             ]
         ),
         reply_to_message_id=message.message_id
-    )    
+    )

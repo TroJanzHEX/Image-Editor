@@ -3,7 +3,7 @@
 import pyrogram
 import shutil
 import os
-from PIL import Image,ImageOps
+from PIL import Image, ImageOps
 
 
 async def black_border(client, message):
@@ -14,15 +14,15 @@ async def black_border(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-black-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
-               message=message.reply_to_message,
-               file_name=download_location
-            )
+        a = await client.download_media(
+            message=message.reply_to_message,
+            file_name=download_location
+        )
         await msg.edit("Processing Image...")
         img = Image.open(a)
-        img_with_border = ImageOps.expand(img,border=100,fill= 'black')
+        img_with_border = ImageOps.expand(img, border=100, fill='black')
         img_with_border.save(edit_img_loc)
-        await message.reply_chat_action("upload_photo")      
+        await message.reply_chat_action("upload_photo")
         await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
         await msg.delete()
     else:
@@ -31,8 +31,8 @@ async def black_border(client, message):
         shutil.rmtree(f"./DOWNLOADS/{userid}")
     except:
         pass
-        
-        
+
+
 async def green_border(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
@@ -41,13 +41,13 @@ async def green_border(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-green-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
-               message=message.reply_to_message,
-               file_name=download_location
-            )
+        a = await client.download_media(
+            message=message.reply_to_message,
+            file_name=download_location
+        )
         await msg.edit("Processing Image...")
         img = Image.open(a)
-        img_with_border = ImageOps.expand(img,border=100,fill= 'green')
+        img_with_border = ImageOps.expand(img, border=100, fill='green')
         img_with_border.save(edit_img_loc)
         await message.reply_chat_action("upload_photo")
         await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
@@ -58,8 +58,8 @@ async def green_border(client, message):
         shutil.rmtree(f"./DOWNLOADS/{userid}")
     except:
         pass
-        
-        
+
+
 async def blue_border(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
@@ -68,13 +68,13 @@ async def blue_border(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-blue-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
-               message=message.reply_to_message,
-               file_name=download_location
-            )
+        a = await client.download_media(
+            message=message.reply_to_message,
+            file_name=download_location
+        )
         await msg.edit("Processing Image...")
         img = Image.open(a)
-        img_with_border = ImageOps.expand(img,border=100,fill= 'blue')
+        img_with_border = ImageOps.expand(img, border=100, fill='blue')
         img_with_border.save(edit_img_loc)
         await message.reply_chat_action("upload_photo")
         await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
@@ -85,8 +85,8 @@ async def blue_border(client, message):
         shutil.rmtree(f"./DOWNLOADS/{userid}")
     except:
         pass
-        
-        
+
+
 async def red_border(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
@@ -95,13 +95,13 @@ async def red_border(client, message):
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-red-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a  =   await client.download_media(
-               message=message.reply_to_message,
-               file_name=download_location
-            )
+        a = await client.download_media(
+            message=message.reply_to_message,
+            file_name=download_location
+        )
         await msg.edit("Processing Image...")
         img = Image.open(a)
-        img_with_border = ImageOps.expand(img,border=100,fill= 'red')
+        img_with_border = ImageOps.expand(img, border=100, fill='red')
         img_with_border.save(edit_img_loc)
         await message.reply_chat_action("upload_photo")
         await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
