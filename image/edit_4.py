@@ -13,7 +13,7 @@ async def rotate_90(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_90.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -40,7 +40,7 @@ async def rotate_180(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_180.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -67,7 +67,7 @@ async def rotate_270(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_270.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -106,7 +106,7 @@ async def round_sticker(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rounded.webp"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -140,7 +140,7 @@ async def inverted(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "inverted.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)

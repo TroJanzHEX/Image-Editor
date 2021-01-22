@@ -14,7 +14,7 @@ async def circle_with_bg(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -47,7 +47,7 @@ async def circle_without_bg(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -81,7 +81,7 @@ async def sticker(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sticker.webp"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -119,7 +119,7 @@ async def edge_curved(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "edge_curved.webp"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -146,7 +146,7 @@ async def contrast(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "contrast.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -195,7 +195,7 @@ async def sepia_mode(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sepia.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -226,7 +226,7 @@ async def pencil(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "pencil.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -268,7 +268,7 @@ async def cartoon(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "kang.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)

@@ -10,7 +10,7 @@ async def black_border(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-black-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -37,7 +37,7 @@ async def green_border(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-green-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -64,7 +64,7 @@ async def blue_border(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-blue-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -91,7 +91,7 @@ async def red_border(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-red-border.png"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)

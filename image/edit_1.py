@@ -38,7 +38,7 @@ async def mix(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "mix.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -66,7 +66,7 @@ async def black_white(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "black_white.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -93,7 +93,7 @@ async def normal_blur(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "BlurImage.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -120,7 +120,7 @@ async def g_blur(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "gaussian_blur.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
@@ -147,7 +147,7 @@ async def box_blur(client, message):
     userid = str(message.chat.id)
     if not os.path.isdir(f"./DOWNLOADS/{userid}"):
         os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + ".jpg"
+    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
     edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "box_blur.jpg"
     if not message.reply_to_message.empty:
         msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
