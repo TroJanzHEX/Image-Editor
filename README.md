@@ -1,13 +1,13 @@
 # Image Editor
 
 <p align="center">
-  <a href="https://github.com/TroJanzHEX/Image-Editor/fork">
-    <img src="https://img.shields.io/github/forks/TroJanzHEX/Image-Editor?label=Fork&style=social">
+  <a href="https://www.python.org">
+    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
 
   </a>
   
-  <a href="https://www.python.org">
-    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
+  <a href="https://github.com/TroJanzHEX/Image-Editor/fork">
+    <img src="https://img.shields.io/github/forks/TroJanzHEX/Image-Editor?label=Fork&style=social">
 
   </a>  
   
