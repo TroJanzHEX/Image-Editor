@@ -2,4 +2,5 @@ NumPy
 tgcrypto
 Pillow
 pyrogram
+glitch_this
 opencv-python-headless
