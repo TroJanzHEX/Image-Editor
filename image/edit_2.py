@@ -11,95 +11,124 @@ import shutil
 
 
 async def circle_with_bg(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        img = Image.open(a).convert("RGB")
-        npImage = np.array(img)
-        h, w = img.size
-        alpha = Image.new('L', img.size, 0)
-        draw = ImageDraw.Draw(alpha)
-        draw.pieslice([0, 0, h, w], 0, 360, fill=255)
-        npAlpha = np.array(alpha)
-        npImage = np.dstack((npImage, npAlpha))
-        Image.fromarray(npImage).save(edit_img_loc)
-        await message.reply_chat_action("upload_photo")
-        await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
-
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            img = Image.open(a).convert("RGB")
+            npImage = np.array(img)
+            h, w = img.size
+            alpha = Image.new('L', img.size, 0)
+            draw = ImageDraw.Draw(alpha)
+            draw.pieslice([0, 0, h, w], 0, 360, fill=255)
+            npAlpha = np.array(alpha)
+            npImage = np.dstack((npImage, npAlpha))
+            Image.fromarray(npImage).save(edit_img_loc)
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("circle_with_bg-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
+            
 
 async def circle_without_bg(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        img = Image.open(a).convert("RGB")
-        npImage = np.array(img)
-        h, w = img.size
-        alpha = Image.new('L', img.size, 0)
-        draw = ImageDraw.Draw(alpha)
-        draw.pieslice([0, 0, h, w], 0, 360, fill=255)
-        npAlpha = np.array(alpha)
-        npImage = np.dstack((npImage, npAlpha))
-        Image.fromarray(npImage).save(edit_img_loc)
-        await message.reply_chat_action("upload_document")
-        await message.reply_to_message.reply_document(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
-
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            img = Image.open(a).convert("RGB")
+            npImage = np.array(img)
+            h, w = img.size
+            alpha = Image.new('L', img.size, 0)
+            draw = ImageDraw.Draw(alpha)
+            draw.pieslice([0, 0, h, w], 0, 360, fill=255)
+            npAlpha = np.array(alpha)
+            npImage = np.dstack((npImage, npAlpha))
+            Image.fromarray(npImage).save(edit_img_loc)
+            await message.reply_chat_action("upload_document")
+            await message.reply_to_message.reply_document(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("circle_without_bg-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
 
 
 async def sticker(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sticker.webp"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        os.rename(a, edit_img_loc)
-        await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
-
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sticker.webp"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            os.rename(a, edit_img_loc)
+            await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("sticker-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
+                
 
 def add_corners(im, rad):
     circle = Image.new('L', (rad * 2, rad * 2), 0)
@@ -116,58 +145,78 @@ def add_corners(im, rad):
 
 
 async def edge_curved(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "edge_curved.webp"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        im = Image.open(a)
-        im = add_corners(im, 100)
-        im.save(edit_img_loc)
-        await message.reply_chat_action("upload_photo")
-        await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
-
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "edge_curved.webp"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            im = Image.open(a)
+            im = add_corners(im, 100)
+            im.save(edit_img_loc)
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("edge_curved-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
+                
 
 async def contrast(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "contrast.jpg"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        image = Image.open(a)
-        contrast = ImageEnhance.Contrast(image)
-        contrast.enhance(1.5).save(edit_img_loc)
-        await message.reply_chat_action("upload_photo")
-        await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
-
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "contrast.jpg"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            image = Image.open(a)
+            contrast = ImageEnhance.Contrast(image)
+            contrast.enhance(1.5).save(edit_img_loc)
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("contrast-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
+                
 
 def sepia(img):
     width, height = img.size
@@ -192,66 +241,86 @@ def sepia(img):
 
 
 async def sepia_mode(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sepia.jpg"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        image = Image.open(a)
-        new_img = sepia(image)
-        new_img.save(edit_img_loc)
-        await message.reply_chat_action("upload_photo")
-        await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
-
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sepia.jpg"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            image = Image.open(a)
+            new_img = sepia(image)
+            new_img.save(edit_img_loc)
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("sepia_mode-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
+                
 
 def dodgeV2(x, y):
     return cv2.divide(x, 255 - y, scale=256)
 
 
 async def pencil(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "pencil.jpg"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        img = cv2.imread(a)
-        img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        img_invert = cv2.bitwise_not(img_gray)
-        img_smoothing = cv2.GaussianBlur(
-            img_invert, (21, 21), sigmaX=0, sigmaY=0)
-        final_img = dodgeV2(img_gray, img_smoothing)
-        cv2.imwrite(edit_img_loc, final_img)
-        await message.reply_chat_action("upload_photo")
-        await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
-
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "pencil.jpg"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            img = cv2.imread(a)
+            img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img_invert = cv2.bitwise_not(img_gray)
+            img_smoothing = cv2.GaussianBlur(
+                img_invert, (21, 21), sigmaX=0, sigmaY=0)
+            final_img = dodgeV2(img_gray, img_smoothing)
+            cv2.imwrite(edit_img_loc, final_img)
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("pencil-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
+                
 
 def color_quantization(img, k):
     data = np.float32(img).reshape((-1, 3))
@@ -265,34 +334,46 @@ def color_quantization(img, k):
 
 
 async def cartoon(client, message):
-    userid = str(message.chat.id)
-    if not os.path.isdir(f"./DOWNLOADS/{userid}"):
-        os.makedirs(f"./DOWNLOADS/{userid}")
-    download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
-    edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "kang.jpg"
-    if not message.reply_to_message.empty:
-        msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
-        a = await client.download_media(
-            message=message.reply_to_message,
-            file_name=download_location
-        )
-        await msg.edit("Processing Image...")
-        img = cv2.imread(a)
-        edges = cv2.Canny(img, 100, 200)
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        edges = cv2.adaptiveThreshold(
-            gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 5)
-        color = cv2.bilateralFilter(img, d=9, sigmaColor=200, sigmaSpace=200)
-
-        cartoon = cv2.bitwise_and(color, color, mask=edges)
-        img_1 = color_quantization(img, 7)
-        cv2.imwrite(edit_img_loc, img_1)
-        await message.reply_chat_action("upload_photo")
-        await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
-        await msg.delete()
-    else:
-        await message.reply_text("Why did you delete that??")
     try:
-        shutil.rmtree(f"./DOWNLOADS/{userid}")
-    except:
-        pass
+        userid = str(message.chat.id)
+        if not os.path.isdir(f"./DOWNLOADS/{userid}"):
+            os.makedirs(f"./DOWNLOADS/{userid}")
+        download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
+        edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "kang.jpg"
+        if not message.reply_to_message.empty:
+            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            a = await client.download_media(
+                message=message.reply_to_message,
+                file_name=download_location
+            )
+            await msg.edit("Processing Image...")
+            img = cv2.imread(a)
+            edges = cv2.Canny(img, 100, 200)
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            edges = cv2.adaptiveThreshold(
+                gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 5)
+            color = cv2.bilateralFilter(img, d=9, sigmaColor=200, sigmaSpace=200)
+
+            cartoon = cv2.bitwise_and(color, color, mask=edges)
+            img_1 = color_quantization(img, 7)
+            cv2.imwrite(edit_img_loc, img_1)
+            await message.reply_chat_action("upload_photo")
+            await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
+            await msg.delete()
+        else:
+            await message.reply_text("Why did you delete that??")
+        try:
+            shutil.rmtree(f"./DOWNLOADS/{userid}")
+        except:
+            pass
+    except Exception as e:
+        print("cartoon-error - " + str(e))
+        if "USER_IS_BLOCKED" in str(e):
+            return
+        else:
+            try:
+                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+            except:
+                return
+                
+                
