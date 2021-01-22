@@ -1,15 +1,16 @@
 # By @TroJanzHEX
+
 import pyrogram
 from image.edit_1 import bright, mix, black_white, g_blur, normal_blur, box_blur
 from image.edit_2 import circle_with_bg, circle_without_bg, sticker, edge_curved, contrast, sepia_mode, pencil, cartoon
 from image.edit_3 import green_border, blue_border, black_border, red_border
 from image.edit_4 import rotate_90, rotate_180, rotate_270, inverted, round_sticker, removebg_white, removebg_plain, removebg_sticker
 from image.edit_5 import (
-    orgglitch_1,
-    orgglitch_2,
-    orgglitch_3,
-    orgglitch_4,
-    orgglitch_5,
+    normalglitch_1,
+    normalglitch_2,
+    normalglitch_3,
+    normalglitch_4,
+    normalglitch_5,
     scanlineglitch_1,
     scanlineglitch_2,
     scanlineglitch_3,
@@ -180,23 +181,23 @@ async def cb_handler(client, query):
 
     elif query.data == "normalglitch1":
         await query.message.delete()
-        await orgglitch_1(client, query.message)
+        await normalglitch_1(client, query.message)
 
     elif query.data == "normalglitch2":
         await query.message.delete()
-        await orgglitch_2(client, query.message)
+        await normalglitch_2(client, query.message)
 
     elif query.data == "normalglitch3":
         await query.message.delete()
-        await orgglitch_3(client, query.message)
+        await normalglitch_3(client, query.message)
 
     elif query.data == "normalglitch4":
         await query.message.delete()
-        await orgglitch_4(client, query.message)
+        await normalglitch_4(client, query.message)
 
     elif query.data == "normalglitch5":
         await query.message.delete()
-        await orgglitch_5(client, query.message)
+        await normalglitch_5(client, query.message)
         
         
     elif query.data == "scanlineglitch1":
