@@ -1,13 +1,10 @@
 # By @TroJanzHEX
-
-import os
-import pyrogram
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 @Client.on_message(filters.photo & filters.private)
-async def photo(client, message):
+async def photo(client: Client, message: Message):
     try:
         await client.send_message(
             chat_id=message.chat.id,
@@ -36,16 +33,17 @@ async def photo(client, message):
                     ],
                     [
                         InlineKeyboardButton(text="INVERT", callback_data="inverted"),
-                        InlineKeyboardButton(text ="GLITCH",callback_data ="glitch"),
-                        InlineKeyboardButton(text ="REMOVE BG",callback_data ="removebg"),
+                        InlineKeyboardButton(text="GLITCH", callback_data="glitch"),
+                        InlineKeyboardButton(
+                            text="REMOVE BG", callback_data="removebg"
+                        ),
                     ],
                     [
                         InlineKeyboardButton(text="CLOSE", callback_data="close_e"),
-
-                    ]
+                    ],
                 ]
             ),
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.message_id,
         )
     except Exception as e:
         print("photomarkup error - " + str(e))
@@ -54,5 +52,5 @@ async def photo(client, message):
         else:
             try:
                 await message.reply_text("Something went wrong!", quote=True)
-            except:
+            except Exception:
                 return

@@ -1,9 +1,7 @@
 # By @TroJanzHEX
-
-import pyrogram
+from PIL import Image, ImageOps
 import shutil
 import os
-from PIL import Image, ImageOps
 
 
 async def black_border(client, message):
@@ -14,14 +12,15 @@ async def black_border(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-black-border.png"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             img = Image.open(a)
-            img_with_border = ImageOps.expand(img, border=100, fill='black')
+            img_with_border = ImageOps.expand(img, border=100, fill="black")
             img_with_border.save(edit_img_loc)
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
@@ -30,7 +29,7 @@ async def black_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("black_border-error - " + str(e))
@@ -38,8 +37,10 @@ async def black_border(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
-            except:
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
+            except Exception:
                 return
 
 
@@ -51,14 +52,15 @@ async def green_border(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-green-border.png"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             img = Image.open(a)
-            img_with_border = ImageOps.expand(img, border=100, fill='green')
+            img_with_border = ImageOps.expand(img, border=100, fill="green")
             img_with_border.save(edit_img_loc)
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
@@ -67,7 +69,7 @@ async def green_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("green_border-error - " + str(e))
@@ -75,8 +77,10 @@ async def green_border(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
-            except:
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
+            except Exception:
                 return
 
 
@@ -88,14 +92,15 @@ async def blue_border(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-blue-border.png"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             img = Image.open(a)
-            img_with_border = ImageOps.expand(img, border=100, fill='blue')
+            img_with_border = ImageOps.expand(img, border=100, fill="blue")
             img_with_border.save(edit_img_loc)
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
@@ -104,7 +109,7 @@ async def blue_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("blue_border-error - " + str(e))
@@ -112,8 +117,10 @@ async def blue_border(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
-            except:
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
+            except Exception:
                 return
 
 
@@ -125,14 +132,15 @@ async def red_border(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "imaged-red-border.png"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             img = Image.open(a)
-            img_with_border = ImageOps.expand(img, border=100, fill='red')
+            img_with_border = ImageOps.expand(img, border=100, fill="red")
             img_with_border.save(edit_img_loc)
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
@@ -141,7 +149,7 @@ async def red_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("red_border-error - " + str(e))
@@ -149,7 +157,8 @@ async def red_border(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
-            except:
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
+            except Exception:
                 return
-                

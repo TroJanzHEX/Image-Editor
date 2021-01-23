@@ -1,21 +1,15 @@
 # By @TroJanzHEX
-
-import os
-import pyrogram
-
-
 from pyrogram import Client
+import os
 
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
 else:
-    from config import Config
+    from config import Config  # pylint:disable=import-error
 
 
 if __name__ == "__main__":
-    plugins = dict(
-        root="plugins"
-    )
+    plugins = dict(root="plugins")
 
     app = Client(
         "TroJanz",
@@ -23,6 +17,6 @@ if __name__ == "__main__":
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
         plugins=plugins,
-        workers=300
+        workers=300,
     )
     app.run()
