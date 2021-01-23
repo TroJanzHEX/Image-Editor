@@ -15,10 +15,11 @@ async def bright(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "brightness.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             image = Image.open(a)
@@ -39,10 +40,12 @@ async def bright(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-        
+
 
 async def mix(client, message):
     try:
@@ -52,10 +55,11 @@ async def mix(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "mix.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             image = Image.open(a)
@@ -77,7 +81,9 @@ async def mix(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
 
@@ -90,10 +96,11 @@ async def black_white(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "black_white.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             image_file = cv2.imread(a)
@@ -114,10 +121,12 @@ async def black_white(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-        
+
 
 async def normal_blur(client, message):
     try:
@@ -127,10 +136,11 @@ async def normal_blur(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "BlurImage.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             OriImage = Image.open(a)
@@ -151,10 +161,12 @@ async def normal_blur(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-        
+
 
 async def g_blur(client, message):
     try:
@@ -164,10 +176,11 @@ async def g_blur(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "gaussian_blur.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             im1 = Image.open(a)
@@ -188,10 +201,12 @@ async def g_blur(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-            
+
 
 async def box_blur(client, message):
     try:
@@ -201,10 +216,11 @@ async def box_blur(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "box_blur.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             im1 = Image.open(a)
@@ -225,7 +241,8 @@ async def box_blur(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-            

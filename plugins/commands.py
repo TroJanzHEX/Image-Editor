@@ -20,14 +20,17 @@ async def start(client, message):
                     ],
                     [
                         InlineKeyboardButton(
-                            "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")
-                    ]
+                            "SOURCE CODE",
+                            url="https://github.com/TroJanzHEX/Image-Editor",
+                        )
+                    ],
                 ]
             ),
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.message_id,
         )
     except:
         pass
+
 
 @Client.on_message(filters.command(["help"]) & filters.private)
 async def help(client, message):
@@ -43,14 +46,17 @@ async def help(client, message):
                     ],
                     [
                         InlineKeyboardButton(
-                            "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")
-                    ]
+                            "SOURCE CODE",
+                            url="https://github.com/TroJanzHEX/Image-Editor",
+                        )
+                    ],
                 ]
             ),
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.message_id,
         )
     except:
         pass
+
 
 @Client.on_message(filters.command(["about"]) & filters.private)
 async def about(client, message):
@@ -66,11 +72,13 @@ async def about(client, message):
                     ],
                     [
                         InlineKeyboardButton(
-                            "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")
-                    ]
+                            "SOURCE CODE",
+                            url="https://github.com/TroJanzHEX/Image-Editor",
+                        )
+                    ],
                 ]
             ),
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.message_id,
         )
     except:
         pass

@@ -13,9 +13,7 @@ else:
 
 
 if __name__ == "__main__":
-    plugins = dict(
-        root="plugins"
-    )
+    plugins = dict(root="plugins")
 
     app = Client(
         "TroJanz",
@@ -23,6 +21,6 @@ if __name__ == "__main__":
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
         plugins=plugins,
-        workers=300
+        workers=300,
     )
     app.run()

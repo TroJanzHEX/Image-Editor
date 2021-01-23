@@ -2,9 +2,27 @@
 
 import pyrogram
 from image.edit_1 import bright, mix, black_white, g_blur, normal_blur, box_blur
-from image.edit_2 import circle_with_bg, circle_without_bg, sticker, edge_curved, contrast, sepia_mode, pencil, cartoon
+from image.edit_2 import (
+    circle_with_bg,
+    circle_without_bg,
+    sticker,
+    edge_curved,
+    contrast,
+    sepia_mode,
+    pencil,
+    cartoon,
+)
 from image.edit_3 import green_border, blue_border, black_border, red_border
-from image.edit_4 import rotate_90, rotate_180, rotate_270, inverted, round_sticker, removebg_white, removebg_plain, removebg_sticker
+from image.edit_4 import (
+    rotate_90,
+    rotate_180,
+    rotate_270,
+    inverted,
+    round_sticker,
+    removebg_white,
+    removebg_plain,
+    removebg_sticker,
+)
 from image.edit_5 import (
     normalglitch_1,
     normalglitch_2,
@@ -15,7 +33,7 @@ from image.edit_5 import (
     scanlineglitch_2,
     scanlineglitch_3,
     scanlineglitch_4,
-    scanlineglitch_5
+    scanlineglitch_5,
 )
 
 from pyrogram import Client
@@ -42,10 +60,18 @@ async def cb_handler(client, query):
     elif query.data == "circle":
         await query.message.edit_text(
             "**Select required mode**",
-            reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton(text="WITH BG", callback_data ="circlewithbg"),
-                    InlineKeyboardButton(text="WITHOUT BG", callback_data ="circlewithoutbg")]
-            ])
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="WITH BG", callback_data="circlewithbg"
+                        ),
+                        InlineKeyboardButton(
+                            text="WITHOUT BG", callback_data="circlewithoutbg"
+                        ),
+                    ]
+                ]
+            ),
         )
 
     elif query.data == "circlewithbg":
@@ -57,11 +83,35 @@ async def cb_handler(client, query):
         await circle_without_bg(client, query.message)
 
     elif query.data == "blur":
-        await query.message.edit("**Select a Type**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="box", callback_data="box"), InlineKeyboardButton(text="normal", callback_data="normal")], [InlineKeyboardButton(text="Gaussian", callback_data="gas")]]))
+        await query.message.edit(
+            "**Select a Type**",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="box", callback_data="box"),
+                        InlineKeyboardButton(text="normal", callback_data="normal"),
+                    ],
+                    [InlineKeyboardButton(text="Gaussian", callback_data="gas")],
+                ]
+            ),
+        )
 
     elif query.data == "border":
-        await query.message.edit("**Select Border**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🔴 RED 🔴", callback_data="red"), InlineKeyboardButton(text="🟢 Green 🟢", callback_data="green")],
-                                                                                         [InlineKeyboardButton(text="⚫ Black ⚫", callback_data="black"), InlineKeyboardButton(text="🔵 Blue 🔵", callback_data="blue")]]))
+        await query.message.edit(
+            "**Select Border**",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="🔴 RED 🔴", callback_data="red"),
+                        InlineKeyboardButton(text="🟢 Green 🟢", callback_data="green"),
+                    ],
+                    [
+                        InlineKeyboardButton(text="⚫ Black ⚫", callback_data="black"),
+                        InlineKeyboardButton(text="🔵 Blue 🔵", callback_data="blue"),
+                    ],
+                ]
+            ),
+        )
     elif query.data == "green":
         await query.message.delete()
         await green_border(client, query.message)
@@ -79,8 +129,24 @@ async def cb_handler(client, query):
         await black_border(client, query.message)
 
     elif query.data == "stick":
-        await query.message.edit("**Select a Type**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Normal", callback_data="stkr"), InlineKeyboardButton(text="Edge Curved", callback_data="cur_ved")],
-                                                                                         [InlineKeyboardButton(text="Circle", callback_data="circle_sticker")]]))
+        await query.message.edit(
+            "**Select a Type**",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="Normal", callback_data="stkr"),
+                        InlineKeyboardButton(
+                            text="Edge Curved", callback_data="cur_ved"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Circle", callback_data="circle_sticker"
+                        )
+                    ],
+                ]
+            ),
+        )
 
     elif query.data == "circle_sticker":
         await query.message.delete()
@@ -99,8 +165,18 @@ async def cb_handler(client, query):
         await edge_curved(client, query.message)
 
     elif query.data == "rotate":
-        await query.message.edit_text("**Select the Degree**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="180", callback_data="180"), InlineKeyboardButton(text="90", callback_data="90")],
-                                                                                                  [InlineKeyboardButton(text="270", callback_data="270")]]))
+        await query.message.edit_text(
+            "**Select the Degree**",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="180", callback_data="180"),
+                        InlineKeyboardButton(text="90", callback_data="90"),
+                    ],
+                    [InlineKeyboardButton(text="270", callback_data="270")],
+                ]
+            ),
+        )
 
     elif query.data == "90":
         await query.message.delete()
@@ -145,38 +221,57 @@ async def cb_handler(client, query):
         await query.message.delete()
         await cartoon(client, query.message)
 
-        
     elif query.data == "glitch":
         await query.message.edit_text(
             "**Select required mode**ㅤㅤㅤㅤ",
-            reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton(text="NORMAL", callback_data ="normalglitch"),
-                    InlineKeyboardButton(text="SCAN LINES", callback_data ="scanlineglitch")]
-            ])
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="NORMAL", callback_data="normalglitch"
+                        ),
+                        InlineKeyboardButton(
+                            text="SCAN LINES", callback_data="scanlineglitch"
+                        ),
+                    ]
+                ]
+            ),
         )
 
     elif query.data == "normalglitch":
         await query.message.edit_text(
             "**Select Glitch power level**",
-            reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton(text="1", callback_data ="normalglitch1"),
-                    InlineKeyboardButton(text="2", callback_data ="normalglitch2"),
-                        InlineKeyboardButton(text="3", callback_data ="normalglitch3")],
-                [InlineKeyboardButton(text="4", callback_data ="normalglitch4"),
-                    InlineKeyboardButton(text="5", callback_data ="normalglitch5")]
-            ])
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="1", callback_data="normalglitch1"),
+                        InlineKeyboardButton(text="2", callback_data="normalglitch2"),
+                        InlineKeyboardButton(text="3", callback_data="normalglitch3"),
+                    ],
+                    [
+                        InlineKeyboardButton(text="4", callback_data="normalglitch4"),
+                        InlineKeyboardButton(text="5", callback_data="normalglitch5"),
+                    ],
+                ]
+            ),
         )
-        
+
     elif query.data == "scanlineglitch":
         await query.message.edit_text(
             "**Select Glitch power level**",
-            reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton(text="1", callback_data ="scanlineglitch1"),
-                    InlineKeyboardButton(text="2", callback_data ="scanlineglitch2"),
-                        InlineKeyboardButton(text="3", callback_data ="scanlineglitch3")],
-                [InlineKeyboardButton(text="4", callback_data ="scanlineglitch4"),
-                    InlineKeyboardButton(text="5", callback_data ="scanlineglitch5")]
-            ])
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="1", callback_data="scanlineglitch1"),
+                        InlineKeyboardButton(text="2", callback_data="scanlineglitch2"),
+                        InlineKeyboardButton(text="3", callback_data="scanlineglitch3"),
+                    ],
+                    [
+                        InlineKeyboardButton(text="4", callback_data="scanlineglitch4"),
+                        InlineKeyboardButton(text="5", callback_data="scanlineglitch5"),
+                    ],
+                ]
+            ),
         )
 
     elif query.data == "normalglitch1":
@@ -198,8 +293,7 @@ async def cb_handler(client, query):
     elif query.data == "normalglitch5":
         await query.message.delete()
         await normalglitch_5(client, query.message)
-        
-        
+
     elif query.data == "scanlineglitch1":
         await query.message.delete()
         await scanlineglitch_1(client, query.message)
@@ -218,20 +312,26 @@ async def cb_handler(client, query):
 
     elif query.data == "scanlineglitch5":
         await query.message.delete()
-        await scanlineglitch_5(client, query.message) 
+        await scanlineglitch_5(client, query.message)
 
-
-   
     elif query.data == "removebg":
         await query.message.edit_text(
             "**Select required mode**ㅤㅤㅤㅤ",
-            reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton(text="WITH WHITE BG", callback_data ="rmbgwhite"),
-                    InlineKeyboardButton(text="WITHOUT BG", callback_data ="rmbgplain")],
-                [InlineKeyboardButton(text="STICKER", callback_data ="rmbgsticker")]
-            ])
-        )      
-        
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="WITH WHITE BG", callback_data="rmbgwhite"
+                        ),
+                        InlineKeyboardButton(
+                            text="WITHOUT BG", callback_data="rmbgplain"
+                        ),
+                    ],
+                    [InlineKeyboardButton(text="STICKER", callback_data="rmbgsticker")],
+                ]
+            ),
+        )
+
     elif query.data == "rmbgwhite":
         await query.message.delete()
         await removebg_white(client, query.message)
@@ -244,24 +344,64 @@ async def cb_handler(client, query):
         await query.message.delete()
         await removebg_sticker(client, query.message)
 
-
     elif query.data == "start_data":
 
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("HELP", callback_data="help_data"), InlineKeyboardButton("ABOUT", callback_data="about_data"), ],
-                                         [InlineKeyboardButton("SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")]])
+        keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("HELP", callback_data="help_data"),
+                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
+                    )
+                ],
+            ]
+        )
 
-        await query.message.edit_text(script.START_MSG.format(query.from_user.mention), reply_markup=keyboard, disable_web_page_preview=True)
+        await query.message.edit_text(
+            script.START_MSG.format(query.from_user.mention),
+            reply_markup=keyboard,
+            disable_web_page_preview=True,
+        )
 
     elif query.data == "help_data":
 
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("BACK", callback_data="start_data"), InlineKeyboardButton("ABOUT", callback_data="about_data"), ],
-                                         [InlineKeyboardButton("SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")]])
+        keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("BACK", callback_data="start_data"),
+                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
+                    )
+                ],
+            ]
+        )
 
-        await query.message.edit_text(script.HELP_MSG, reply_markup=keyboard, disable_web_page_preview=True)
+        await query.message.edit_text(
+            script.HELP_MSG, reply_markup=keyboard, disable_web_page_preview=True
+        )
 
     elif query.data == "about_data":
 
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("BACK", callback_data="help_data"), InlineKeyboardButton("START", callback_data="start_data"), ],
-                                         [InlineKeyboardButton("SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor")]])
+        keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("BACK", callback_data="help_data"),
+                    InlineKeyboardButton("START", callback_data="start_data"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
+                    )
+                ],
+            ]
+        )
 
-        await query.message.edit_text(script.ABOUT_MSG, reply_markup=keyboard, disable_web_page_preview=True)
+        await query.message.edit_text(
+            script.ABOUT_MSG, reply_markup=keyboard, disable_web_page_preview=True
+        )

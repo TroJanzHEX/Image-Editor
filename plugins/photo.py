@@ -36,16 +36,17 @@ async def photo(client, message):
                     ],
                     [
                         InlineKeyboardButton(text="INVERT", callback_data="inverted"),
-                        InlineKeyboardButton(text ="GLITCH",callback_data ="glitch"),
-                        InlineKeyboardButton(text ="REMOVE BG",callback_data ="removebg"),
+                        InlineKeyboardButton(text="GLITCH", callback_data="glitch"),
+                        InlineKeyboardButton(
+                            text="REMOVE BG", callback_data="removebg"
+                        ),
                     ],
                     [
                         InlineKeyboardButton(text="CLOSE", callback_data="close_e"),
-
-                    ]
+                    ],
                 ]
             ),
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.message_id,
         )
     except Exception as e:
         print("photomarkup error - " + str(e))

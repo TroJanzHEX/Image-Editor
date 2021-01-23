@@ -7,7 +7,7 @@ import cv2
 import shutil
 import requests
 import pyrogram
-import numpy as np 
+import numpy as np
 from PIL import Image, ImageOps, ImageDraw
 
 if bool(os.environ.get("WEBHOOK", False)):
@@ -24,10 +24,11 @@ async def rotate_90(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_90.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             src = cv2.imread(a)
@@ -48,7 +49,9 @@ async def rotate_90(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
 
@@ -61,10 +64,11 @@ async def rotate_180(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_180.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             src = cv2.imread(a)
@@ -85,10 +89,12 @@ async def rotate_180(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-                
+
 
 async def rotate_270(client, message):
     try:
@@ -98,10 +104,11 @@ async def rotate_270(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_270.jpg"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             src = cv2.imread(a)
@@ -122,7 +129,9 @@ async def rotate_270(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
 
@@ -131,7 +140,7 @@ def resize_photo(photo: str, userid: str) -> io.BytesIO:
     image = Image.open(photo)
     maxsize = 512
     scale = maxsize / max(image.width, image.height)
-    new_size = (int(image.width*scale), int(image.height*scale))
+    new_size = (int(image.width * scale), int(image.height * scale))
     image = image.resize(new_size, Image.LANCZOS)
     resized_photo = io.BytesIO()
     resized_photo.name = "./DOWNLOADS" + "/" + userid + "resized.png"
@@ -147,17 +156,18 @@ async def round_sticker(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rounded.webp"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             resized = resize_photo(a, userid)
             img = Image.open(resized).convert("RGB")
             npImage = np.array(img)
             h, w = img.size
-            alpha = Image.new('L', img.size, 0)
+            alpha = Image.new("L", img.size, 0)
             draw = ImageDraw.Draw(alpha)
             draw.pieslice([0, 0, h, w], 0, 360, fill=255)
             npAlpha = np.array(alpha)
@@ -178,10 +188,12 @@ async def round_sticker(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-                
+
 
 async def inverted(client, message):
     try:
@@ -191,10 +203,11 @@ async def inverted(client, message):
         download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "inverted.png"
         if not message.reply_to_message.empty:
-            msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+            msg = await message.reply_to_message.reply_text(
+                "Downloading image", quote=True
+            )
             a = await client.download_media(
-                message=message.reply_to_message,
-                file_name=download_location
+                message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
             image = Image.open(a)
@@ -215,10 +228,12 @@ async def inverted(client, message):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-                
+
 
 async def removebg_plain(client, message):
     try:
@@ -229,26 +244,29 @@ async def removebg_plain(client, message):
             download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
             edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgplain.png"
             if not message.reply_to_message.empty:
-                msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+                msg = await message.reply_to_message.reply_text(
+                    "Downloading image", quote=True
+                )
                 a = await client.download_media(
-                    message=message.reply_to_message,
-                    file_name=download_location
+                    message=message.reply_to_message, file_name=download_location
                 )
                 await msg.edit("Processing Image...")
 
                 response = requests.post(
-                    'https://api.remove.bg/v1.0/removebg',
-                    files={'image_file': open(download_location, 'rb')},
-                    data={'size': 'auto'},
-                    headers={'X-Api-Key': Config.RemoveBG_API},
+                    "https://api.remove.bg/v1.0/removebg",
+                    files={"image_file": open(download_location, "rb")},
+                    data={"size": "auto"},
+                    headers={"X-Api-Key": Config.RemoveBG_API},
                 )
                 if response.status_code == requests.codes.ok:
-                    with open(f'{edit_img_loc}', 'wb') as out:
+                    with open(f"{edit_img_loc}", "wb") as out:
                         out.write(response.content)
                 else:
-                    await message.reply_to_message.reply_text("Check if your api is correct", quote=True)
+                    await message.reply_to_message.reply_text(
+                        "Check if your api is correct", quote=True
+                    )
                     return
-                    
+
                 await message.reply_chat_action("upload_document")
                 await message.reply_to_message.reply_document(edit_img_loc, quote=True)
                 await msg.delete()
@@ -262,18 +280,21 @@ async def removebg_plain(client, message):
             await message.reply_to_message.reply_text(
                 "Get the api from https://www.remove.bg/b/background-removal-api and add in Config Var",
                 quote=True,
-                disable_web_page_preview=True)
+                disable_web_page_preview=True,
+            )
     except Exception as e:
         print("removebg_plain-error - " + str(e))
         if "USER_IS_BLOCKED" in str(e):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-            
-            
+
+
 async def removebg_white(client, message):
     try:
         if not (Config.RemoveBG_API == ""):
@@ -283,26 +304,29 @@ async def removebg_white(client, message):
             download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
             edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgwhite.png"
             if not message.reply_to_message.empty:
-                msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+                msg = await message.reply_to_message.reply_text(
+                    "Downloading image", quote=True
+                )
                 a = await client.download_media(
-                    message=message.reply_to_message,
-                    file_name=download_location
+                    message=message.reply_to_message, file_name=download_location
                 )
                 await msg.edit("Processing Image...")
 
                 response = requests.post(
-                    'https://api.remove.bg/v1.0/removebg',
-                    files={'image_file': open(download_location, 'rb')},
-                    data={'size': 'auto'},
-                    headers={'X-Api-Key': Config.RemoveBG_API},
+                    "https://api.remove.bg/v1.0/removebg",
+                    files={"image_file": open(download_location, "rb")},
+                    data={"size": "auto"},
+                    headers={"X-Api-Key": Config.RemoveBG_API},
                 )
                 if response.status_code == requests.codes.ok:
-                    with open(f'{edit_img_loc}', 'wb') as out:
+                    with open(f"{edit_img_loc}", "wb") as out:
                         out.write(response.content)
                 else:
-                    await message.reply_to_message.reply_text("Check if your api is correct", quote=True)
+                    await message.reply_to_message.reply_text(
+                        "Check if your api is correct", quote=True
+                    )
                     return
-                    
+
                 await message.reply_chat_action("upload_photo")
                 await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
                 await msg.delete()
@@ -316,18 +340,21 @@ async def removebg_white(client, message):
             await message.reply_to_message.reply_text(
                 "Get the api from https://www.remove.bg/b/background-removal-api and add in Config Var",
                 quote=True,
-                disable_web_page_preview=True)
+                disable_web_page_preview=True,
+            )
     except Exception as e:
         print("removebg_white-error - " + str(e))
         if "USER_IS_BLOCKED" in str(e):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-            
-            
+
+
 async def removebg_sticker(client, message):
     try:
         if not (Config.RemoveBG_API == ""):
@@ -337,26 +364,29 @@ async def removebg_sticker(client, message):
             download_location = "./DOWNLOADS" + "/" + userid + "/" + userid + ".jpg"
             edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgsticker.webp"
             if not message.reply_to_message.empty:
-                msg = await message.reply_to_message.reply_text("Downloading image", quote=True)
+                msg = await message.reply_to_message.reply_text(
+                    "Downloading image", quote=True
+                )
                 a = await client.download_media(
-                    message=message.reply_to_message,
-                    file_name=download_location
+                    message=message.reply_to_message, file_name=download_location
                 )
                 await msg.edit("Processing Image...")
 
                 response = requests.post(
-                    'https://api.remove.bg/v1.0/removebg',
-                    files={'image_file': open(download_location, 'rb')},
-                    data={'size': 'auto'},
-                    headers={'X-Api-Key': Config.RemoveBG_API},
+                    "https://api.remove.bg/v1.0/removebg",
+                    files={"image_file": open(download_location, "rb")},
+                    data={"size": "auto"},
+                    headers={"X-Api-Key": Config.RemoveBG_API},
                 )
                 if response.status_code == requests.codes.ok:
-                    with open(f'{edit_img_loc}', 'wb') as out:
+                    with open(f"{edit_img_loc}", "wb") as out:
                         out.write(response.content)
                 else:
-                    await message.reply_to_message.reply_text("Check if your api is correct", quote=True)
+                    await message.reply_to_message.reply_text(
+                        "Check if your api is correct", quote=True
+                    )
                     return
-                    
+
                 await message.reply_chat_action("upload_photo")
                 await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
                 await msg.delete()
@@ -370,14 +400,16 @@ async def removebg_sticker(client, message):
             await message.reply_to_message.reply_text(
                 "Get the api from https://www.remove.bg/b/background-removal-api and add in Config Var",
                 quote=True,
-                disable_web_page_preview=True)               
+                disable_web_page_preview=True,
+            )
     except Exception as e:
         print("removebg_sticker-error - " + str(e))
         if "USER_IS_BLOCKED" in str(e):
             return
         else:
             try:
-                await message.reply_to_message.reply_text("Something went wrong!", quote=True)
+                await message.reply_to_message.reply_text(
+                    "Something went wrong!", quote=True
+                )
             except:
                 return
-                
