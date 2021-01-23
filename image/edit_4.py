@@ -1,19 +1,17 @@
 # By @TroJanzHEX
-
-
+from PIL import Image, ImageOps, ImageDraw
+import numpy as np
+import requests
+import shutil
+import cv2
 import io
 import os
-import cv2
-import shutil
-import requests
-import pyrogram
-import numpy as np
-from PIL import Image, ImageOps, ImageDraw
+
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
+    from sample_config import Config  # pylint:disable=import-error
 else:
-    from config import Config
+    from config import Config  # pylint:disable=import-error
 
 
 async def rotate_90(client, message):
@@ -41,7 +39,7 @@ async def rotate_90(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("rotate_90-error - " + str(e))
@@ -52,7 +50,7 @@ async def rotate_90(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -81,7 +79,7 @@ async def rotate_180(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("rotate_180-error - " + str(e))
@@ -92,7 +90,7 @@ async def rotate_180(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -121,7 +119,7 @@ async def rotate_270(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("rotate_270-error - " + str(e))
@@ -132,7 +130,7 @@ async def rotate_270(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -180,7 +178,7 @@ async def round_sticker(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("round_sticker-error - " + str(e))
@@ -191,7 +189,7 @@ async def round_sticker(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -220,7 +218,7 @@ async def inverted(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("inverted-error - " + str(e))
@@ -231,7 +229,7 @@ async def inverted(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -247,7 +245,7 @@ async def removebg_plain(client, message):
                 msg = await message.reply_to_message.reply_text(
                     "Downloading image", quote=True
                 )
-                a = await client.download_media(
+                await client.download_media(
                     message=message.reply_to_message, file_name=download_location
                 )
                 await msg.edit("Processing Image...")
@@ -258,7 +256,7 @@ async def removebg_plain(client, message):
                     data={"size": "auto"},
                     headers={"X-Api-Key": Config.RemoveBG_API},
                 )
-                if response.status_code == requests.codes.ok:
+                if response.status_code == 200:
                     with open(f"{edit_img_loc}", "wb") as out:
                         out.write(response.content)
                 else:
@@ -274,7 +272,7 @@ async def removebg_plain(client, message):
                 await message.reply_text("Why did you delete that??")
             try:
                 shutil.rmtree(f"./DOWNLOADS/{userid}")
-            except:
+            except Exception:
                 pass
         else:
             await message.reply_to_message.reply_text(
@@ -291,7 +289,7 @@ async def removebg_plain(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -307,7 +305,7 @@ async def removebg_white(client, message):
                 msg = await message.reply_to_message.reply_text(
                     "Downloading image", quote=True
                 )
-                a = await client.download_media(
+                await client.download_media(
                     message=message.reply_to_message, file_name=download_location
                 )
                 await msg.edit("Processing Image...")
@@ -318,7 +316,7 @@ async def removebg_white(client, message):
                     data={"size": "auto"},
                     headers={"X-Api-Key": Config.RemoveBG_API},
                 )
-                if response.status_code == requests.codes.ok:
+                if response.status_code == 200:
                     with open(f"{edit_img_loc}", "wb") as out:
                         out.write(response.content)
                 else:
@@ -334,7 +332,7 @@ async def removebg_white(client, message):
                 await message.reply_text("Why did you delete that??")
             try:
                 shutil.rmtree(f"./DOWNLOADS/{userid}")
-            except:
+            except Exception:
                 pass
         else:
             await message.reply_to_message.reply_text(
@@ -351,7 +349,7 @@ async def removebg_white(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -367,7 +365,7 @@ async def removebg_sticker(client, message):
                 msg = await message.reply_to_message.reply_text(
                     "Downloading image", quote=True
                 )
-                a = await client.download_media(
+                await client.download_media(
                     message=message.reply_to_message, file_name=download_location
                 )
                 await msg.edit("Processing Image...")
@@ -378,7 +376,7 @@ async def removebg_sticker(client, message):
                     data={"size": "auto"},
                     headers={"X-Api-Key": Config.RemoveBG_API},
                 )
-                if response.status_code == requests.codes.ok:
+                if response.status_code == 200:
                     with open(f"{edit_img_loc}", "wb") as out:
                         out.write(response.content)
                 else:
@@ -394,7 +392,7 @@ async def removebg_sticker(client, message):
                 await message.reply_text("Why did you delete that??")
             try:
                 shutil.rmtree(f"./DOWNLOADS/{userid}")
-            except:
+            except Exception:
                 pass
         else:
             await message.reply_to_message.reply_text(
@@ -411,5 +409,5 @@ async def removebg_sticker(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return

@@ -1,10 +1,6 @@
 # By @TroJanzHEX
-
-import pyrogram
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from PIL import Image, ImageEnhance, ImageDraw, ImageFilter, ImageOps
+from PIL import Image, ImageEnhance, ImageDraw
 import numpy as np
-import io
 import os
 import cv2
 import shutil
@@ -41,7 +37,7 @@ async def circle_with_bg(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("circle_with_bg-error - " + str(e))
@@ -52,7 +48,7 @@ async def circle_with_bg(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -87,7 +83,7 @@ async def circle_without_bg(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("circle_without_bg-error - " + str(e))
@@ -98,7 +94,7 @@ async def circle_without_bg(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -124,7 +120,7 @@ async def sticker(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("sticker-error - " + str(e))
@@ -135,7 +131,7 @@ async def sticker(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -178,7 +174,7 @@ async def edge_curved(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("edge_curved-error - " + str(e))
@@ -189,7 +185,7 @@ async def edge_curved(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -218,7 +214,7 @@ async def contrast(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("contrast-error - " + str(e))
@@ -229,7 +225,7 @@ async def contrast(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -280,7 +276,7 @@ async def sepia_mode(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("sepia_mode-error - " + str(e))
@@ -291,7 +287,7 @@ async def sepia_mode(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -327,7 +323,7 @@ async def pencil(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("pencil-error - " + str(e))
@@ -338,14 +334,14 @@ async def pencil(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
 def color_quantization(img, k):
     data = np.float32(img).reshape((-1, 3))
     criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 20, 1.0)
-    ret, label, center = cv2.kmeans(
+    _, label, center = cv2.kmeans(
         data, k, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS
     )
     center = np.uint8(center)
@@ -377,7 +373,7 @@ async def cartoon(client, message):
             )
             color = cv2.bilateralFilter(img, d=9, sigmaColor=200, sigmaSpace=200)
 
-            cartoon = cv2.bitwise_and(color, color, mask=edges)
+            cv2.bitwise_and(color, color, mask=edges)
             img_1 = color_quantization(img, 7)
             cv2.imwrite(edit_img_loc, img_1)
             await message.reply_chat_action("upload_photo")
@@ -387,7 +383,7 @@ async def cartoon(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("cartoon-error - " + str(e))
@@ -398,5 +394,5 @@ async def cartoon(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return

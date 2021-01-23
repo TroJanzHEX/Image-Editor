@@ -1,5 +1,4 @@
 # By @TroJanzHEX
-
 from image.edit_1 import (  # pylint:disable=import-error
     bright,
     mix,
@@ -46,13 +45,13 @@ from image.edit_5 import (  # pylint:disable=import-error
     scanlineglitch_4,
     scanlineglitch_5,
 )
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client
 from script import script  # pylint:disable=import-error
 
 
 @Client.on_callback_query()
-async def cb_handler(client, query):
+async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "removebg":
         await query.message.edit_text(
             "**Select required mode**ㅤㅤㅤㅤ",

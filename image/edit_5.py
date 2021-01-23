@@ -1,13 +1,7 @@
 # By @TroJanzHEX
-
-
-import os
-import shutil
 import asyncio
-import pyrogram
-import subprocess
-
-import glitch_this
+import shutil
+import os
 
 
 async def normalglitch_1(client, message):
@@ -21,7 +15,7 @@ async def normalglitch_1(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -29,7 +23,7 @@ async def normalglitch_1(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -37,7 +31,7 @@ async def normalglitch_1(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("normalglitch_1-error - " + str(e))
@@ -48,7 +42,7 @@ async def normalglitch_1(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -63,7 +57,7 @@ async def normalglitch_2(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -71,7 +65,7 @@ async def normalglitch_2(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -79,7 +73,7 @@ async def normalglitch_2(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("normalglitch_2-error - " + str(e))
@@ -90,7 +84,7 @@ async def normalglitch_2(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -105,7 +99,7 @@ async def normalglitch_3(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -113,7 +107,7 @@ async def normalglitch_3(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -121,7 +115,7 @@ async def normalglitch_3(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("normalglitch_3-error - " + str(e))
@@ -132,7 +126,7 @@ async def normalglitch_3(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -147,7 +141,7 @@ async def normalglitch_4(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -155,7 +149,7 @@ async def normalglitch_4(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -163,7 +157,7 @@ async def normalglitch_4(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("normalglitch_4-error - " + str(e))
@@ -174,7 +168,7 @@ async def normalglitch_4(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -189,7 +183,7 @@ async def normalglitch_5(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -197,7 +191,7 @@ async def normalglitch_5(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -205,7 +199,7 @@ async def normalglitch_5(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("normalglitch_5-error - " + str(e))
@@ -216,7 +210,7 @@ async def normalglitch_5(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -231,7 +225,7 @@ async def scanlineglitch_1(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -239,7 +233,7 @@ async def scanlineglitch_1(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -247,7 +241,7 @@ async def scanlineglitch_1(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("scanlineglitch_1-error - " + str(e))
@@ -258,7 +252,7 @@ async def scanlineglitch_1(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -273,7 +267,7 @@ async def scanlineglitch_2(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -281,7 +275,7 @@ async def scanlineglitch_2(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -289,7 +283,7 @@ async def scanlineglitch_2(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("scanlineglitch_2-error - " + str(e))
@@ -300,7 +294,7 @@ async def scanlineglitch_2(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -315,7 +309,7 @@ async def scanlineglitch_3(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -323,7 +317,7 @@ async def scanlineglitch_3(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -331,7 +325,7 @@ async def scanlineglitch_3(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("scanlineglitch_3-error - " + str(e))
@@ -342,7 +336,7 @@ async def scanlineglitch_3(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -357,7 +351,7 @@ async def scanlineglitch_4(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -365,7 +359,7 @@ async def scanlineglitch_4(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -373,7 +367,7 @@ async def scanlineglitch_4(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("scanlineglitch_4-error - " + str(e))
@@ -384,7 +378,7 @@ async def scanlineglitch_4(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -399,7 +393,7 @@ async def scanlineglitch_5(client, message):
             msg = await message.reply_to_message.reply_text(
                 "Downloading image", quote=True
             )
-            a = await client.download_media(
+            await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
             await msg.edit("Processing Image...")
@@ -407,7 +401,7 @@ async def scanlineglitch_5(client, message):
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
-            stdout, stderr = await process.communicate()
+            await process.communicate()
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
@@ -415,7 +409,7 @@ async def scanlineglitch_5(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("scanlineglitch_5-error - " + str(e))
@@ -426,5 +420,5 @@ async def scanlineglitch_5(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return

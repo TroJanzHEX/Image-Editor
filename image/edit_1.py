@@ -1,10 +1,8 @@
 # By @TroJanzHEX
-
-import pyrogram
+from PIL import Image, ImageEnhance, ImageFilter
 import shutil
 import cv2
 import os
-from PIL import Image, ImageEnhance, ImageFilter
 
 
 async def bright(client, message):
@@ -32,7 +30,7 @@ async def bright(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("bright-error - " + str(e))
@@ -43,7 +41,7 @@ async def bright(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -73,7 +71,7 @@ async def mix(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("mix-error - " + str(e))
@@ -84,7 +82,7 @@ async def mix(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -113,7 +111,7 @@ async def black_white(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("black_white-error - " + str(e))
@@ -124,7 +122,7 @@ async def black_white(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -153,7 +151,7 @@ async def normal_blur(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("normal_blur-error - " + str(e))
@@ -164,7 +162,7 @@ async def normal_blur(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -193,7 +191,7 @@ async def g_blur(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("g_blur-error - " + str(e))
@@ -204,7 +202,7 @@ async def g_blur(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -233,7 +231,7 @@ async def box_blur(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("box_blur-error - " + str(e))
@@ -244,5 +242,5 @@ async def box_blur(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return

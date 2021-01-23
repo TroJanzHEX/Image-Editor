@@ -1,9 +1,7 @@
 # By @TroJanzHEX
-
-import pyrogram
+from PIL import Image, ImageOps
 import shutil
 import os
-from PIL import Image, ImageOps
 
 
 async def black_border(client, message):
@@ -31,7 +29,7 @@ async def black_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("black_border-error - " + str(e))
@@ -42,7 +40,7 @@ async def black_border(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -71,7 +69,7 @@ async def green_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("green_border-error - " + str(e))
@@ -82,7 +80,7 @@ async def green_border(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -111,7 +109,7 @@ async def blue_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("blue_border-error - " + str(e))
@@ -122,7 +120,7 @@ async def blue_border(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return
 
 
@@ -151,7 +149,7 @@ async def red_border(client, message):
             await message.reply_text("Why did you delete that??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
-        except:
+        except Exception:
             pass
     except Exception as e:
         print("red_border-error - " + str(e))
@@ -162,5 +160,5 @@ async def red_border(client, message):
                 await message.reply_to_message.reply_text(
                     "Something went wrong!", quote=True
                 )
-            except:
+            except Exception:
                 return

@@ -1,13 +1,11 @@
 # By @TroJanzHEX
-import pyrogram
-from pyrogram import Client
-from pyrogram import filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from script import script
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram import Client, filters
+from script import script  # pylint:disable=import-error
 
 
 @Client.on_message(filters.command(["start"]) & filters.private)
-async def start(client, message):
+async def start(client: Client, message: Message):
     try:
         await message.reply_text(
             text=script.START_MSG.format(message.from_user.mention),
@@ -28,7 +26,7 @@ async def start(client, message):
             ),
             reply_to_message_id=message.message_id,
         )
-    except:
+    except Exception:
         pass
 
 
@@ -54,7 +52,7 @@ async def help(client, message):
             ),
             reply_to_message_id=message.message_id,
         )
-    except:
+    except Exception:
         pass
 
 
@@ -80,5 +78,5 @@ async def about(client, message):
             ),
             reply_to_message_id=message.message_id,
         )
-    except:
+    except Exception:
         pass
