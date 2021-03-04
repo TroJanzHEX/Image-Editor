@@ -235,7 +235,7 @@ async def inverted(client, message):
 
 async def removebg_plain(client, message):
     try:
-        if not (Config.RemoveBG_API == ""):
+        if not (Config.REMOVEBG_API == ""):
             userid = str(message.chat.id)
             if not os.path.isdir(f"./DOWNLOADS/{userid}"):
                 os.makedirs(f"./DOWNLOADS/{userid}")
