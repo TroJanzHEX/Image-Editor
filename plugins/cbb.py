@@ -100,62 +100,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [InlineKeyboardButton(text="270", callback_data="270")],
                 ]
             ),
-        )
-    elif query.data == "start_data":
-
-        keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("HELP", callback_data="help_data"),
-                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
-                    )
-                ],
-            ]
-        )
-
-        await query.message.edit_text(
-            script.START_MSG.format(query.from_user.mention),
-            reply_markup=keyboard,
-            disable_web_page_preview=True,
-        )
-    elif query.data == "help_data":
-        keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("BACK", callback_data="start_data"),
-                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
-                    )
-                ],
-            ]
-        )
-        await query.message.edit_text(
-            script.HELP_MSG, reply_markup=keyboard, disable_web_page_preview=True
-        )
-    elif query.data == "about_data":
-        keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("BACK", callback_data="help_data"),
-                    InlineKeyboardButton("START", callback_data="start_data"),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
-                    )
-                ],
-            ]
-        )
-        await query.message.edit_text(
-            script.ABOUT_MSG, reply_markup=keyboard, disable_web_page_preview=True
-        )
+        ) 
     elif query.data == "glitch":
         await query.message.edit_text(
             "**Select required mode**ㅤㅤㅤㅤ",
