@@ -28,6 +28,10 @@
             "description": "allow only pre-defined users to use this bot",
             "value": "1266681279"
         },
+        "TIME_LIMIT": {
+            "description": "Set timeout for subprocess (In seconds)",
+            "value": "000"
+        },
         "UPDATE_CHANNEL": {
             "description": "For Force Subscribe. Paste your Update channel USERNAME (without @)..",
             "value": "",
