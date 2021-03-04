@@ -1,10 +1,37 @@
 # By @TroJanzHEX
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+import os
+import time
+import math
 from pyrogram import Client, filters
-
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message 
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel
 
 @Client.on_message(filters.photo & filters.private)
-async def photo(client: Client, message: Message):
+async def photo(Client, Message):
+    if Config.UPDATE_CHANNEL:
+        try:
+          user = await bot.get_chat_member(Config.UPDATE_CHANNEL, update.chat.id)
+          if user.status == "kicked":
+            await update.reply_text(text=script.BANNED_USER_TEXT)
+            return
+        except UserNotParticipant:
+          await update.reply_text(text=script.FORCE_SUBSCRIBE_TEXT, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="😎 Join Channel 😎", url=f"https://telegram.me/{Config.UPDATE_CHANNEL}")]]))
+          return
+        except Exception:
+          await update.reply_text(text=script.SOMETHING_WRONG)
+          return
+    if update.from_user.id not in Config.AUTH_USERS:
+        if str(update.from_user.id) in Config.ADL_BOT_RQ:
+            current_time = time.time()
+            previous_time = Config.ADL_BOT_RQ[str(update.from_user.id)]
+            process_max_timeout = round(Config.PROCESS_MAX_TIMEOUT/60)
+            present_time = round(Config.PROCESS_MAX_TIMEOUT-(current_time - previous_time))
+            Config.ADL_BOT_RQ[str(update.from_user.id)] = time.time()
+            if round(current_time - previous_time) < Config.PROCESS_MAX_TIMEOUT:
+                await bot.send_message(text=script.FREE_USER_LIMIT.format(process_max_timeout, present_time), quote=True)
+                return
+        else:
+            Config.ADL_BOT_RQ[str(update.from_user.id)] = time.time()
     try:
         await client.send_message(
             chat_id=message.chat.id,
