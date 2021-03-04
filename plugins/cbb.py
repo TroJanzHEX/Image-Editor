@@ -48,11 +48,17 @@ from image.edit_5 import (  # pylint:disable=import-error
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client
 from script import script  # pylint:disable=import-error
-
+if bool(os.environ.get("WEBHOOK", False)):
+    from sample_config import Config
+else:
+    from config import Config
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "removebg":
+        if query.from_user.id not in Config.AUTH_USERS:
+            await query.message.edit_text("This future will only be available to upgraded users")
+            return
         await query.message.edit_text(
             "**Select required mode**ㅤㅤㅤㅤ",
             reply_markup=InlineKeyboardMarkup(
