@@ -8,9 +8,9 @@
         "Telegram Bot",
         "TroJanzHEX"
     ],
-    "website": "https://TroJanzHEX.me",
-    "repository": "https://github.com/TroJanzHEX/Image-Editor",
-    "success_url": "https://telegram.dog/TroJanzHEX",
+    "website": "https://github.com/FayasNoushad/FayasNoushad",
+    "repository": "https://github.com/FayasNoushad/Image-Editor",
+    "success_url": "https://telegram.me/FayasNoushad",
     "env": {
         "TG_BOT_TOKEN": {
             "description": "You Telegram Bot Token from @BotFather",
@@ -24,7 +24,16 @@
             "description": "Your APP ID from my.telegram.org",
             "value": ""
         },
-        "RemoveBG_API": {
+        "AUTH_USERS": {
+            "description": "allow only pre-defined users to use this bot",
+            "value": "1266681279"
+        },
+        "UPDATE_CHANNEL": {
+            "description": "For Force Subscribe. Paste your Update channel USERNAME (without @)..",
+            "value": "",
+            "required": false
+        },
+        "REMOVEBG_API": {
             "description": "Get this api from https://www.remove.bg/b/background-removal-api",
             "value": "",
             "required": false
