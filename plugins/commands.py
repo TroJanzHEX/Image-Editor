@@ -5,7 +5,7 @@ from script import script  # pylint:disable=import-error
 
 
 @Client.on_message(filters.command(["start"]) & filters.private)
-async def start(client: Client, message: Message):
+async def start(Client, Message):
     try:
         await message.reply_text(
             text=script.START_MSG.format(message.from_user.mention),
