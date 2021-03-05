@@ -66,7 +66,7 @@ async def photo(Client, Message):
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="CLOSE", callback_data="close_e"),
+                        InlineKeyboardButton(text="CLOSE", callback_data="close"),
                     ],
                 ]
             ),
