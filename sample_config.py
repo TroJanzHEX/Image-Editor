@@ -28,4 +28,5 @@ class Config(object):
     PROCESS_MAX_TIMEOUT = int(os.environ.get("TIME_LIMIT", ""))
     
     # server info 
-    SERVER_DOMAIN = "heroku.com"
+    SERVER_DOMAIN = os.environ.get("SERVER_DOMAIN", "")
+    SERVER = os.environ.get("SERVER", "")
