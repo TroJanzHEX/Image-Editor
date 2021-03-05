@@ -8,11 +8,11 @@
 </p>
 
 <p align="center">
-  <a href="https://www.python.org">
+  <a href="https://telegram.me/FayasNoushad">
     <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
 
   </a>
-  <a href="https://www.python.org">
+  <a href="https://telegram.me/FayasChat">
     <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
 
   </a>
