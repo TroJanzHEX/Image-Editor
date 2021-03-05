@@ -5,16 +5,15 @@ class script(object):
 
 Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion. Use /help and /about for more...</b>
 """
-    HELP_MSG = """Hai, Follow these Steps..
+    HELP_MSG = """
+<b><u>Help and Informations</u></b>
 
-<code>🌀 Send me any Image to Edit..</code>
+➠ Send me any Image to Edit.
+➠ Select the Corresponding mode that you need.
+➠ Your Edited Image will be Uploaded.
 
-<code>🌀 Select the Corresponding mode that you need</code>
-
-<code>🌀 Your Edited Image will be Uploaded </code>
-
-
-© @TroJanzHEX"""
+<b>Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion.</b>
+"""
     ABOUT_MSG = """
 <b><u>Informations About Me</u></b>
 
