@@ -12,7 +12,7 @@ else:
 
 
 @Client.on_message(filters.photo & filters.private)
-async def photo(Client, Message):
+async def photo(bot, update):
     if Config.UPDATE_CHANNEL:
         try:
           user = await bot.get_chat_member(Config.UPDATE_CHANNEL, update.chat.id)
@@ -38,8 +38,8 @@ async def photo(Client, Message):
         else:
             Config.ADL_BOT_RQ[str(update.from_user.id)] = time.time()
     try:
-        await client.send_message(
-            chat_id=message.chat.id,
+        await bot.send_message(
+            chat_id=update.chat.id,
             text="Select your required mode from below!ㅤㅤ",
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -75,7 +75,7 @@ async def photo(Client, Message):
                     ],
                 ]
             ),
-            reply_to_message_id=message.message_id,
+            reply_to_message_id=update.message_id,
         )
     except Exception as e:
         print("photomarkup error - " + str(e))
@@ -83,6 +83,6 @@ async def photo(Client, Message):
             return
         else:
             try:
-                await message.reply_text("Something went wrong!", quote=True)
+                await message.reply_text(script.SOMETHING_WRONG, quote=True)
             except Exception:
                 return
