@@ -26,3 +26,5 @@ Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='htt
 - Server : <a href='https://heroku.com/'>Heroku</a>
 - Source : <a href='https://github.com/FayasNoushad/Image-Editor'>Click Here</a>
 """
+    SOMETHING_WRONG = "Something wrong. Contact <a href='https://telegram.me/FayasChat'>support group</a>."
+    FREE_USER_LIMIT = "Sorry Friend, Free users can only 1 request per {} minutes. Please try again after {} seconds later."
