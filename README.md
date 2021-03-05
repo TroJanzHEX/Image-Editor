@@ -27,10 +27,13 @@ python3 bot.py
 
 ## Configs
 
-* TG_BOT_TOKEN  - Get bot token from @BotFather
-* APP_ID        - From my.telegram.org (or @UseTGXBot)
-* API_HASH      - From my.telegram.org (or @UseTGXBot)
-* REMOVEBG_API  - From [RemoveBG](https://www.remove.bg/b/background-removal-api)
+* TG_BOT_TOKEN   - Get bot token from @BotFather
+* APP_ID         - From my.telegram.org (or @UseTGXBot)
+* API_HASH       - From my.telegram.org (or @UseTGXBot)
+* AUTH_USERS     - Allow only pre-defined users to use this bot
+* REMOVEBG_API   - From [RemoveBG](https://www.remove.bg/b/background-removal-api)
+* TIME_LIMIT     - Allow only pre-defined users to use this bot 
+* UPDATE_CHANNEL - For Force Subscribe. Paste your Update channel USERNAME (without @)..
 
 ## Credits
 
