@@ -20,7 +20,6 @@
 </p>
 
 #### An open source image editor which can manipulate an image in many ways!
-#### If you need any more modes in repo or If you find out any bugs, mention in @TroJanzSupport
 
 ## Installation
 
