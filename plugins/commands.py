@@ -1,11 +1,11 @@
 # By @TroJanzHEX
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
 from script import script  # pylint:disable=import-error
 
 
 @Client.on_message(filters.command(["start"]) & filters.private)
-async def start(Client, Message):
+async def start(client, message):
     try:
         await client.send_message(
             text=script.START_MSG.format(message.from_user.mention),
