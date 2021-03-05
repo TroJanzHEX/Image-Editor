@@ -24,6 +24,7 @@ Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='htt
 - Language : <a href='https://www.python.org/'>Python3</a>
 - Framework : <a href='https://docs.pyrogram.org/'>Pyrogram</a>
 - Server : <a href='https://heroku.com/'>Heroku</a>
+- Credits : <a href='https://github.com/FayasNoushad/Image-Editor#credits'>Click Here</a>
 - Source : <a href='https://github.com/FayasNoushad/Image-Editor'>Click Here</a>
 """
     BANNED_USER_TEXT = "<code>You are Banned!</code>"
