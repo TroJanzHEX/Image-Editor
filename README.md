@@ -7,6 +7,16 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://www.python.org">
+    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
+
+  </a>
+  <a href="https://www.python.org">
+    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
+
+  </a>
+</p>
 
 #### An open source image editor which can manipulate an image in many ways!
 #### If you need any more modes in repo or If you find out any bugs, mention in @TroJanzSupport
@@ -14,7 +24,7 @@
 ## Installation
 
 ### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TroJanzHEX/Image-Editor)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FayasNoushad/Image-Editor)
 
 ### Deploy in your vps
 ```sh
