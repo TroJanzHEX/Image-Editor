@@ -19,7 +19,7 @@ Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='htt
 
 <b>Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion.</b>
 """
-    ABOUT_MSG = """
+    ABOUT_MSG = f"""
 <b><u>Informations About Me</u></b>
 
 - Name : <a href='https://telegram.me/FnImageEditBot'>Image Editor</a>
@@ -28,7 +28,7 @@ Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='htt
 - Projects : <a href='http://telegram.me/FNPROJECTS'>Fayas Projects</a>
 - Language : <a href='https://www.python.org/'>Python3</a>
 - Framework : <a href='https://docs.pyrogram.org/'>Pyrogram</a>
-- Server : <a href='https://heroku.com/'>Heroku</a>
+- Server : <a href='https://{Config.SERVER_DOMAIN}/'>{Config.SERVER}</a>
 - Credits : <a href='https://github.com/FayasNoushad/Image-Editor#credits'>Click Here</a>
 - Source : <a href='https://github.com/FayasNoushad/Image-Editor'>Click Here</a>
 """
