@@ -8,9 +8,9 @@ Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='htt
     HELP_MSG = """
 <b><u>Help and Informations</u></b>
 
-➠ Send me any Image to Edit.
-➠ Select the Corresponding mode that you need.
-➠ Your Edited Image will be Uploaded.
+- Send me any Image to Edit.
+- Select the Corresponding mode that you need.
+- Your Edited Image will be Uploaded.
 
 <b>Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion.</b>
 """
