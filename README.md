@@ -9,11 +9,11 @@
 
 <p align="center">
   <a href="https://telegram.me/FayasNoushad">
-    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
+    <img src="https://img.shields.io/badge/Updates_Channel-30302f?style=flat&logo=telegram">
 
   </a>
   <a href="https://telegram.me/FayasChat">
-    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
+    <img src="https://img.shields.io/badge/Support_Group-30302f?style=flat&logo=telegram">
 
   </a>
 </p>
