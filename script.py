@@ -28,6 +28,8 @@ Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='htt
 - Server : <a href='https://{Info.SERVER_DOMAIN}/'>{Info.SERVER}</a>
 - Credits : <a href='https://github.com/FayasNoushad/Image-Editor#credits'>Click Here</a>
 - Source : <a href='https://github.com/FayasNoushad/Image-Editor'>Click Here</a>
+
+Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion.
 """
     BANNED_USER_TEXT = "<code>You are Banned!</code>"
     SOMETHING_WRONG = "Something wrong. Contact <a href='https://telegram.me/FayasChat'>support group</a>."
