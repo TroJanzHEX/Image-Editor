@@ -1,14 +1,11 @@
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
+from info import Info
 
 class script(object):
 
     START_MSG = """
-<b>Hello {} , I'am a simple file or media convert bot with permanent thumbnail support.
+Hello {} , I'am a simple file or media convert bot with permanent thumbnail support.
 
-Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion. Use /help and /about for more...</b>
+Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion. Use /help and /about for more...
 """
     HELP_MSG = """
 <b><u>Help and Informations</u></b>
@@ -17,18 +14,18 @@ Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='htt
 - Select the Corresponding mode that you need.
 - Your Edited Image will be Uploaded.
 
-<b>Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion.</b>
+Made with love ❤️ by @FayasNoushad from India 🇮🇳. Contact <a href='https://telegram.me/FayasChat'>support group</a> for discussion.
 """
     ABOUT_MSG = f"""
 <b><u>Informations About Me</u></b>
 
-- Name : <a href='https://telegram.me/FnImageEditBot'>Image Editor</a>
+- Name : <a href='https://telegram.me/{Info.BOT_USERNAME}'>{Info.BOT_NAME}</a>
 - Channel : <a href='http://telegram.me/FayasNoushad'>Fayas</a>
 - Support : <a href='http://telegram.me/FayasChat'> Fayas Chat</a>
 - Projects : <a href='http://telegram.me/FNPROJECTS'>Fayas Projects</a>
 - Language : <a href='https://www.python.org/'>Python3</a>
 - Framework : <a href='https://docs.pyrogram.org/'>Pyrogram</a>
-- Server : <a href='https://{Config.SERVER_DOMAIN}/'>{Config.SERVER}</a>
+- Server : <a href='https://{Info.SERVER_DOMAIN}/'>{Info.SERVER}</a>
 - Credits : <a href='https://github.com/FayasNoushad/Image-Editor#credits'>Click Here</a>
 - Source : <a href='https://github.com/FayasNoushad/Image-Editor'>Click Here</a>
 """
