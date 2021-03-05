@@ -44,7 +44,7 @@
         "SERVER_DOMAIN": {
             "description": "Enter your app hosting server domain",
             "value": ""
-        }
+        },
         "REMOVEBG_API": {
             "description": "Get this api from https://www.remove.bg/b/background-removal-api",
             "value": "",
