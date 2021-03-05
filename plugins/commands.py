@@ -7,6 +7,8 @@ from script import script  # pylint:disable=import-error
 @Client.on_message(filters.command(["start"]) & filters.private)
 async def start(bot, update):
     await bot.send_message(
+        chat_id=update.chat.id,
+        parse_mode="html",
         text=script.START_MSG.format(message.from_user.mention),
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔰 HELP 🔰', callback_data='help'), InlineKeyboardButton('🔰 ABOUT 🔰', callback_data='about')]]),
@@ -17,6 +19,8 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private)
 async def help(bot, update):
     await bot.send_message(
+        chat_id=update.chat.id,
+        parse_mode="html",
         text=script.HELP_MSG,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔰 HOME 🔰', callback_data='home'), InlineKeyboardButton('🔰 ABOUT 🔰', callback_data='about')]]),
@@ -27,6 +31,8 @@ async def help(bot, update):
 @Client.on_message(filters.command(["about"]) & filters.private)
 async def about(bot, update):
     await bot.send_message(
+        chat_id=update.chat.id,
+        parse_mode="html",
         text=script.ABOUT_MSG,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔰 HELP 🔰', callback_data='help'), InlineKeyboardButton('🔰 HOME 🔰', callback_data='home')]]),
