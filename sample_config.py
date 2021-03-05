@@ -26,3 +26,6 @@ class Config(object):
 
     # set timeout for subprocess
     PROCESS_MAX_TIMEOUT = int(os.environ.get("TIME_LIMIT", ""))
+    
+    # server info 
+    SERVER_DOMAIN = "heroku.com"
