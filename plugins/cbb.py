@@ -45,6 +45,7 @@ from image.edit_5 import (  # pylint:disable=import-error
     scanlineglitch_4,
     scanlineglitch_5,
 )
+from plugins.commands import start, help, about
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client
 from script import script  # pylint:disable=import-error
@@ -55,7 +56,18 @@ else:
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    if query.data == "removebg":
+    if query.data == "home":
+        await query.message.delete()
+        await start(client, query.message)
+    elif query.data == "help":
+        await query.message.delete()
+        await help(client, query.message)
+    elif query.data == "about":
+        await query.message.delete()
+        await about(client, query.message)
+    elif query.data == "close":
+        await query.message.delete()
+    elif query.data == "removebg":
         if query.from_user.id not in Config.AUTH_USERS:
             await query.message.edit_text("This future will only be available to upgraded users")
             return
