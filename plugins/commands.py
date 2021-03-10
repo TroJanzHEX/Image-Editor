@@ -1,7 +1,6 @@
 # By @TroJanzHEX
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from translation import Translation
 from buttons import Button 
 from script import script  # pylint:disable=import-error
 
