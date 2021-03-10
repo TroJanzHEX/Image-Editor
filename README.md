@@ -53,4 +53,4 @@ python3 bot.py
 
 [![TroJanzHEX](https://img.shields.io/badge/TroJanzHEX%20-%23F37626.svg?&style=for-the-badge&logo=telegram&logoColor=white)](https://telegram.me/TroJanzHEX)
 
-[![Contributers](https://img.shields.io/badge/Contributers%20-%23F37626.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/FayasNoushad/Image-Editor/graphs/contributors)
+[![Contributers](https://img.shields.io/badge/Contributers%20-%23F37626.svg?&style=for-the-badge&logo=github&logoColor=black)](https://github.com/FayasNoushad/Image-Editor/graphs/contributors)
