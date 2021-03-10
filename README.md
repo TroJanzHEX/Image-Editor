@@ -47,10 +47,7 @@ python3 bot.py
 
 ## Credits
 
-[![Stack Overflow](https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/)
-
-[![Pyrogram](https://img.shields.io/badge/Pyrogram%20-%23F37626.svg?&style=for-the-badge&logo=telegram&logoColor=white)](https://github.com/pyrogram/pyrogram)
-
-[![TroJanzHEX](https://img.shields.io/badge/TroJanzHEX%20-%23F37626.svg?&style=for-the-badge&logo=telegram&logoColor=white)](https://telegram.me/TroJanzHEX)
-
-[![Contributers](https://img.shields.io/badge/Contributers%20-%23F37626.svg?&style=for-the-badge&logo=github&logoColor=black)](https://github.com/FayasNoushad/Image-Editor/graphs/contributors)
+* [Stack Overflow](https://stackoverflow.com)
+* [Pyrogram](https://github.com/pyrogram/pyrogram)
+* [TroJanzHEX](https://telegram.me/TroJanzHEX)
+* [Contributers](https://github.com/FayasNoushad/Image-Editor/graphs/contributors)
