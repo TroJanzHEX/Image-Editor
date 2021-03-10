@@ -48,7 +48,8 @@ from image.edit_5 import (  # pylint:disable=import-error
 import os 
 from buttons import Button
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyrogram import Client
+from pyrogram import Client 
+from plugins.commands import start, help
 from script import script  # pylint:disable=import-error
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
