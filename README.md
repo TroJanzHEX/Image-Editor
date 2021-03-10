@@ -52,3 +52,5 @@ python3 bot.py
 [![Pyrogram](https://img.shields.io/badge/Pyrogram%20-%23F37626.svg?&style=for-the-badge&logo=telegram&logoColor=white)](https://github.com/pyrogram/pyrogram)
 
 [![TroJanzHEX](https://img.shields.io/badge/TroJanzHEX%20-%23F37626.svg?&style=for-the-badge&logo=telegram&logoColor=white)](https://telegram.me/TroJanzHEX)
+
+[![Contributers](https://img.shields.io/badge/Contributers%20-%23F37626.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/FayasNoushad/Image-Editor/graphs/contributors)
