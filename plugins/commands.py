@@ -1,40 +1,28 @@
 # By @TroJanzHEX
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from translation import Translation
+from buttons import Button 
 from script import script  # pylint:disable=import-error
 
+@Client.on_callback_query()
+async def button(bot, update):
 
-@Client.on_message(filters.command(["start"]) & filters.private)
+    if update.data == "home":
+        await update.message.delete()
+        await start(bot, update.message)
+
+    elif update.data == "help":
+        await update.message.delete()
+        await help(bot, update.message)
+
+    elif update.data == "close":
+        await update.message.delete()
+
+@Client.on_message(filters.command(["start"]))
 async def start(bot, update):
-    await bot.send_message(
-        chat_id=update.chat.id,
-        parse_mode="html",
-        text=script.START_MSG.format(update.from_user.mention),
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔰 HELP 🔰', callback_data='help'), InlineKeyboardButton('🔰 ABOUT 🔰', callback_data='about')]]),
-        reply_to_message_id=update.message_id,
-    )
+    await bot.send_message(chat_id=update.chat.id, text=script.START_MSG.format(update.from_user.mention), parse_mode="html", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(Button.START_BUTTONS), reply_to_message_id=update.message_id)
 
-
-@Client.on_message(filters.command(["help"]) & filters.private)
+@Client.on_message(filters.command(["help"]))
 async def help(bot, update):
-    await bot.send_message(
-        chat_id=update.chat.id,
-        parse_mode="html",
-        text=script.HELP_MSG,
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔰 HOME 🔰', callback_data='home'), InlineKeyboardButton('🔰 ABOUT 🔰', callback_data='about')]]),
-        reply_to_message_id=update.message_id,
-    )
-
-
-@Client.on_message(filters.command(["about"]) & filters.private)
-async def about(bot, update):
-    await bot.send_message(
-        chat_id=update.chat.id,
-        parse_mode="html",
-        text=script.ABOUT_MSG,
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('🔰 HELP 🔰', callback_data='help'), InlineKeyboardButton('🔰 HOME 🔰', callback_data='home')]]),
-        reply_to_message_id=update.message_id,
-    )
+    await bot.send_message(chat_id=update.chat.id, text=script.HELP_MSG, parse_mode="html", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(Button.HELP_BUTTONS), reply_to_message_id=update.message_id)
