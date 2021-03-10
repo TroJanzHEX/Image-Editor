@@ -63,7 +63,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await start(client, query.message)
     elif query.data == "help":
         await query.message.delete()
-        await start(client, query.message)
+        await help(client, query.message)
     elif query.data == "close":
         await query.message.delete()
     elif query.data == "removebg":
