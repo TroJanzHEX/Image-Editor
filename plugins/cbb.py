@@ -58,9 +58,9 @@ else:
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "home":
-        await query.message.edit_text(text=script.START_MSG.format(query.from_user.mention), parse_mode="html", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(Button.START_BUTTONS))
+        await start(client, query.message)
     elif query.data == "help":
-        await query.message.edit_text(text=script.HELP_MSG, parse_mode="html", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(Button.HELP_BUTTONS))
+        await start(client, query.message)
     elif query.data == "close":
         await query.message.delete()
     elif query.data == "removebg":
