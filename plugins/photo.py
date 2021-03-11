@@ -1,7 +1,8 @@
 # By @TroJanzHEX
 import os
 import time
-import math
+import math 
+from script import script  # pylint:disable=import-error
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message 
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel
