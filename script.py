@@ -8,12 +8,13 @@ Made by @FayasNoushad
     HELP_MSG = """
 <b><u>Help and Informations</u></b>
 
-- Send me any Image to Edit.
-- Select the Corresponding mode that you need.
-- Your Edited Image will be Uploaded.
+- Send me any Image to Edit
+- Select the Corresponding mode that you need
+- Your Edited Image will be Uploaded
 
 Made by @FayasNoushad
 """
     BANNED_USER_TEXT = "<code>You are Banned!</code>"
-    SOMETHING_WRONG = "Something wrong. Contact <a href='https://telegram.me/FayasChat'>support group</a>."
+    SOMETHING_WRONG = "Something wrong. Contact @FayasChat."
+    FORCE_SUBSCRIBE_TEXT = "<code>Sorry Dear You Must Join My Updates Channel for using me 😌😉....</code>"
     FREE_USER_LIMIT = "Sorry Friend, Free users can only 1 request per {} minutes. Please try again after {} seconds later."
