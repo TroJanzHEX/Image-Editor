@@ -24,5 +24,13 @@
 ## Installation
 
 ### Deploy to Heroku
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FayasNoushad/Image-Editor)
+
+### Credits
+
+* [Stack Overflow](https://stackoverflow.com)
+* [Pyrogram](https://github.com/pyrogram/pyrogram)
+* [TroJanzHEX](https://telegram.me/TroJanzHEX)
+* [Contributers](https://github.com/FayasNoushad/Image-Editor/graphs/contributors)
 
