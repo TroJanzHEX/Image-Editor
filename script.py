@@ -3,11 +3,6 @@ class script(object):
     START_MSG = """
 Hello {} , I'am a simple Image Editor Bot which Supports various modes.
 
-Made by @FayasNoushad
-"""
-    HELP_MSG = """
-<b><u>Help and Informations</u></b>
-
 - Send me any Image to Edit
 - Select the Corresponding mode that you need
 - Your Edited Image will be Uploaded
