@@ -58,15 +58,7 @@ else:
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    if query.data == "home":
-        await query.message.delete()
-        await start(client, query.message)
-    elif query.data == "help":
-        await query.message.delete()
-        await help(client, query.message)
-    elif query.data == "close":
-        await query.message.delete()
-    elif query.data == "removebg":
+    if query.data == "removebg":
         if query.from_user.id not in Config.AUTH_USERS:
             await query.message.edit_text("This future will only be available to upgraded users")
             return
