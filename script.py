@@ -22,3 +22,4 @@ For more click help....</b>"""
 ⭕️<b>Library :</b> <a href='https://docs.pyrogram.org/'>Pyrogram 1.0.7</a>
 
 ⭕️<b>Source Code :</b> 👉 <a href='https://github.com/TroJanzHEX/Image-Editor'>Click Here</a>"""
+    FREE_USER_LIMIT = "Sorry Friend, Free users can only 1 request per {} minutes. Please try again after {} seconds later."
