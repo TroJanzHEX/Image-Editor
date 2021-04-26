@@ -1,10 +1,29 @@
 # By @TroJanzHEX
+import os
+import time
+import math
+from script import script
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram import Client, filters
-
+if bool(os.environ.get("WEBHOOK", False)):
+    from sample_config import Config
+else:
+    from config import Config
 
 @Client.on_message(filters.photo & filters.private)
 async def photo(client: Client, message: Message):
+    if message.from_user.id not in Config.AUTH_USERS:
+        if str(message.from_user.id) in Config.ADL_BOT_RQ:
+            current_time = time.time()
+            previous_time = Config.ADL_BOT_RQ[str(message.from_user.id)]
+            process_max_timeout = round(Config.PROCESS_MAX_TIMEOUT/60)
+            present_time = round(Config.PROCESS_MAX_TIMEOUT-(current_time - previous_time))
+            Config.ADL_BOT_RQ[str(message.from_user.id)] = time.time()
+            if round(current_time - previous_time) < Config.PROCESS_MAX_TIMEOUT:
+                await client.send_message(text=script.FREE_USER_LIMIT.format(process_max_timeout, present_time), quote=True)
+                return
+        else:
+            Config.ADL_BOT_RQ[str(message.from_user.id)] = time.time()
     try:
         await client.send_message(
             chat_id=message.chat.id,
