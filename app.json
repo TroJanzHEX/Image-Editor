@@ -29,6 +29,14 @@
             "value": "",
             "required": false
         },
+        "AUTH_USERS": {
+            "description": "allow only pre-defined users to use this bot",
+            "value": ""
+        },
+        "TIME_LIMIT": {
+            "description": "Set timeout for subprocess (In seconds)",
+            "value": "0"
+        },
         "WEBHOOK": {
             "description": "Set this Value to 'ANYTHING'. Don't Change it",
             "value": "ANYTHING"
