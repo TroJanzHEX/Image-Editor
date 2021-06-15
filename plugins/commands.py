@@ -19,7 +19,7 @@ async def start(client: Client, message: Message):
                     [
                         InlineKeyboardButton(
                             "Dev",
-                            url="https://t.me/doreamonfans",
+                            url="https://t.me/doreamonfans1",
                         )
                     ],
                 ]
@@ -71,7 +71,7 @@ async def about(client, message):
                     [
                         InlineKeyboardButton(
                             "Dev",
-                            url="https://t.me/doreamonfans3",
+                            url="https://t.me/doreamonfans4",
                         )
                     ],
                 ]
