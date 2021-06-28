@@ -2,6 +2,7 @@
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram import Client, filters
 
+TEXT = "Select your required mode from below!"
 BUTTONS = InlineKeyboardMarkup(
       [
           [
@@ -40,7 +41,7 @@ async def photo(client: Client, message: Message):
     try:
         await client.send_message(
             chat_id=message.chat.id,
-            text="Select your required mode from below!ㅤㅤ",
+            text=TEXT,
             reply_markup=BUTTONS,
             reply_to_message_id=message.message_id,
         )
