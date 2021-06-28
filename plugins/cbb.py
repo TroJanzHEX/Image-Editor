@@ -58,7 +58,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 "Remove BG API error"
             )
         await query.message.edit_text(
-            "**Select required mode**ㅤㅤㅤㅤ",
+            "**Select required mode**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
