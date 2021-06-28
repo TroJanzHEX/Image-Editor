@@ -48,11 +48,16 @@ from image.edit_5 import (  # pylint:disable=import-error
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client
 from script import script  # pylint:disable=import-error
-
+from plugins.photo import TEXT, BUTTONS
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    if query.data == "removebg":
+    if query.data == "back":
+        await query.message.edit_text(
+            text=TEXT,
+            reply_markup=BUTTONS
+        )
+    elif query.data == "removebg":
         if not Config.RemoveBG_API:
             await query.message.edit_text(
                 "Remove BG API error"
