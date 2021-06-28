@@ -60,7 +60,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "removebg":
         if not Config.RemoveBG_API:
             await query.message.edit_text(
-                "Remove BG API error"
+                "Remove BG API error",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")
+                        ]
+                    ]
+                )
             )
         await query.message.edit_text(
             "**Select required mode**",
@@ -75,6 +82,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         ),
                     ],
                     [InlineKeyboardButton(text="STICKER", callback_data="rmbgsticker")],
+                    [InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")]
                 ]
             ),
         )
@@ -94,6 +102,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             text="Circle", callback_data="circle_sticker"
                         )
                     ],
+                    [
+                        InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")
+                    ]
                 ]
             ),
         )
@@ -107,6 +118,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton(text="90", callback_data="90"),
                     ],
                     [InlineKeyboardButton(text="270", callback_data="270")],
+                    [InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")]
                 ]
             ),
         )
@@ -167,7 +179,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "glitch":
         await query.message.edit_text(
-            "**Select required mode**ㅤㅤㅤㅤ",
+            "**Select required mode**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -177,6 +189,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton(
                             text="SCAN LINES", callback_data="scanlineglitch"
                         ),
+                    ],
+                    [
+                        InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")
                     ]
                 ]
             ),
@@ -195,6 +210,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton(text="4", callback_data="normalglitch4"),
                         InlineKeyboardButton(text="5", callback_data="normalglitch5"),
                     ],
+                    [
+                        InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")
+                    ]
                 ]
             ),
         )
@@ -212,6 +230,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton(text="4", callback_data="scanlineglitch4"),
                         InlineKeyboardButton(text="5", callback_data="scanlineglitch5"),
                     ],
+                    [
+                        InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")
+                    ]
                 ]
             ),
         )
@@ -225,6 +246,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton(text="normal", callback_data="normal"),
                     ],
                     [InlineKeyboardButton(text="Gaussian", callback_data="gas")],
+                    [InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")]
                 ]
             ),
         )
@@ -240,6 +262,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton(
                             text="WITHOUT BG", callback_data="circlewithoutbg"
                         ),
+                    ],
+                    [
+                        InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")
                     ]
                 ]
             ),
@@ -257,10 +282,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton(text="⚫ Black ⚫", callback_data="black"),
                         InlineKeyboardButton(text="🔵 Blue 🔵", callback_data="blue"),
                     ],
+                    [
+                        InlineKeyboardButton(text="🔙 Back 🔙", callback_data="back")
+                    ]
                 ]
             ),
         )
     if query.data not in [
+        "back",
         "removebg",
         "stick",
         "rotate",
