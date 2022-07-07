@@ -4,6 +4,8 @@ import numpy as np
 import os
 import cv2
 import shutil
+from googletrans import Translator
+from config import Config
 
 
 async def circle_with_bg(client, message):
@@ -15,12 +17,12 @@ async def circle_with_bg(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             img = Image.open(a).convert("RGB")
             npImage = np.array(img)
             h, w = img.size
@@ -30,11 +32,11 @@ async def circle_with_bg(client, message):
             npAlpha = np.array(alpha)
             npImage = np.dstack((npImage, npAlpha))
             Image.fromarray(npImage).save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -46,7 +48,7 @@ async def circle_with_bg(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return
@@ -61,12 +63,12 @@ async def circle_without_bg(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "circle.png"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             img = Image.open(a).convert("RGB")
             npImage = np.array(img)
             h, w = img.size
@@ -76,11 +78,11 @@ async def circle_without_bg(client, message):
             npAlpha = np.array(alpha)
             npImage = np.dstack((npImage, npAlpha))
             Image.fromarray(npImage).save(edit_img_loc)
-            await message.reply_chat_action("upload_document")
+            # await message.reply_chat_action("upload_document")
             await message.reply_to_message.reply_document(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -92,7 +94,7 @@ async def circle_without_bg(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return
@@ -107,17 +109,17 @@ async def sticker(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sticker.webp"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             os.rename(a, edit_img_loc)
             await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -129,7 +131,7 @@ async def sticker(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return
@@ -158,20 +160,20 @@ async def edge_curved(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "edge_curved.webp"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             im = Image.open(a)
             im = add_corners(im, 100)
             im.save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+
             await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -183,7 +185,7 @@ async def edge_curved(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return
@@ -198,20 +200,20 @@ async def contrast(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "contrast.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             image = Image.open(a)
             contrast = ImageEnhance.Contrast(image)
             contrast.enhance(1.5).save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -223,7 +225,7 @@ async def contrast(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return
@@ -260,20 +262,20 @@ async def sepia_mode(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "sepia.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             image = Image.open(a)
             new_img = sepia(image)
             new_img.save(edit_img_loc)
-            await message.reply_chat_action("upload_photo")
+
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -285,7 +287,7 @@ async def sepia_mode(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return
@@ -304,23 +306,23 @@ async def pencil(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "pencil.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             img = cv2.imread(a)
             img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             img_invert = cv2.bitwise_not(img_gray)
             img_smoothing = cv2.GaussianBlur(img_invert, (21, 21), sigmaX=0, sigmaY=0)
             final_img = dodgeV2(img_gray, img_smoothing)
             cv2.imwrite(edit_img_loc, final_img)
-            await message.reply_chat_action("upload_photo")
+
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -332,7 +334,7 @@ async def pencil(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return
@@ -359,12 +361,12 @@ async def cartoon(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "kang.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                Translator().translate("Downloading image", dest=Config.LANG).text, quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit(Translator().translate("Processing Image...", dest=Config.LANG).text)
             img = cv2.imread(a)
             edges = cv2.Canny(img, 100, 200)
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -376,11 +378,11 @@ async def cartoon(client, message):
             cv2.bitwise_and(color, color, mask=edges)
             img_1 = color_quantization(img, 7)
             cv2.imwrite(edit_img_loc, img_1)
-            await message.reply_chat_action("upload_photo")
+
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text(Translator().translate("Why did you delete that??", dest=Config.LANG).text)
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -392,7 +394,7 @@ async def cartoon(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    Translator().translate("Something went wrong!", dest=Config.LANG).text, quote=True
                 )
             except Exception:
                 return

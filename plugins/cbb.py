@@ -1,4 +1,6 @@
 # By @TroJanzHEX
+from googletrans import Translator
+from config import Config
 from image.edit_1 import (  # pylint:disable=import-error
     bright,
     mix,
@@ -6,6 +8,7 @@ from image.edit_1 import (  # pylint:disable=import-error
     g_blur,
     normal_blur,
     box_blur,
+    add_cover,
 )
 from image.edit_2 import (  # pylint:disable=import-error
     circle_with_bg,
@@ -54,35 +57,35 @@ from script import script  # pylint:disable=import-error
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "removebg":
         await query.message.edit_text(
-            "**Select required mode**ㅤㅤㅤㅤ",
+            text=Translator().translate("**Select required mode**ㅤㅤㅤㅤ", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="WITH WHITE BG", callback_data="rmbgwhite"
+                            text=Translator().translate("WITH WHITE BG", dest=Config.LANG).text, callback_data="rmbgwhite"
                         ),
                         InlineKeyboardButton(
-                            text="WITHOUT BG", callback_data="rmbgplain"
+                            text=Translator().translate("WITHOUT BG", dest=Config.LANG).text, callback_data="rmbgplain"
                         ),
                     ],
-                    [InlineKeyboardButton(text="STICKER", callback_data="rmbgsticker")],
+                    [InlineKeyboardButton(text=Translator().translate("STICKER", dest=Config.LANG).text, callback_data="rmbgsticker")],
                 ]
             ),
         )
     elif query.data == "stick":
         await query.message.edit(
-            "**Select a Type**",
+            Translator().translate("**Select a Type**", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="Normal", callback_data="stkr"),
+                        InlineKeyboardButton(text=Translator().translate("Normal", dest=Config.LANG).text, callback_data="stkr"),
                         InlineKeyboardButton(
-                            text="Edge Curved", callback_data="cur_ved"
+                            text=Translator().translate("Edge Curved", dest=Config.LANG).text, callback_data="cur_ved"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            text="Circle", callback_data="circle_sticker"
+                            text=Translator().translate("Circle", dest=Config.LANG).text, callback_data="circle_sticker"
                         )
                     ],
                 ]
@@ -90,7 +93,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "rotate":
         await query.message.edit_text(
-            "**Select the Degree**",
+            Translator().translate("**Select the Degree**", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -106,12 +109,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("HELP", callback_data="help_data"),
-                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
+                    InlineKeyboardButton(Translator().translate("HELP", dest=Config.LANG).text, callback_data="help_data"),
+                    InlineKeyboardButton(Translator().translate("ABOUT", dest=Config.LANG).text, callback_data="about_data"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
+                        Translator().translate("SOURCE CODE", dest=Config.LANG).text, url="https://github.com/TroJanzHEX/Image-Editor"
                     )
                 ],
             ]
@@ -126,12 +129,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("BACK", callback_data="start_data"),
-                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
+                    InlineKeyboardButton(Translator().translate("BACK", dest=Config.LANG).text, callback_data="start_data"),
+                    InlineKeyboardButton(Translator().translate("ABOUT", dest=Config.LANG).text, callback_data="about_data"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
+                        Translator().translate("SOURCE CODE", dest=Config.LANG).text, url="https://github.com/TroJanzHEX/Image-Editor"
                     )
                 ],
             ]
@@ -143,12 +146,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("BACK", callback_data="help_data"),
-                    InlineKeyboardButton("START", callback_data="start_data"),
+                    InlineKeyboardButton(Translator().translate("BACK", dest=Config.LANG).text, callback_data="help_data"),
+                    InlineKeyboardButton(Translator().translate("START", dest=Config.LANG).text, callback_data="start_data"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Image-Editor"
+                        Translator().translate("SOURCE CODE", dest=Config.LANG).text, url="https://github.com/TroJanzHEX/Image-Editor"
                     )
                 ],
             ]
@@ -158,15 +161,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "glitch":
         await query.message.edit_text(
-            "**Select required mode**ㅤㅤㅤㅤ",
+            Translator().translate("**Select required mode**ㅤㅤㅤㅤ", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="NORMAL", callback_data="normalglitch"
+                            text=Translator().translate("NORMAL", dest=Config.LANG).text, callback_data="normalglitch"
                         ),
                         InlineKeyboardButton(
-                            text="SCAN LINES", callback_data="scanlineglitch"
+                            text=Translator().translate("SCAN LINES", dest=Config.LANG).text, callback_data="scanlineglitch"
                         ),
                     ]
                 ]
@@ -174,7 +177,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "normalglitch":
         await query.message.edit_text(
-            "**Select Glitch power level**",
+            Translator().translate("**Select Glitch power level**", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -191,7 +194,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "scanlineglitch":
         await query.message.edit_text(
-            "**Select Glitch power level**",
+            Translator().translate("**Select Glitch power level**", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -208,28 +211,37 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "blur":
         await query.message.edit(
-            "**Select a Type**",
+            Translator().translate("**Select a Type**", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="box", callback_data="box"),
-                        InlineKeyboardButton(text="normal", callback_data="normal"),
+                        InlineKeyboardButton(text=Translator().translate("box", dest=Config.LANG).text, callback_data="box"),
+                        InlineKeyboardButton(text=Translator().translate("normal", dest=Config.LANG).text, callback_data="normal"),
                     ],
-                    [InlineKeyboardButton(text="Gaussian", callback_data="gas")],
+                    [InlineKeyboardButton(text=Translator().translate("Gaussian", dest=Config.LANG).text, callback_data="gas")],
+                ]
+            ),
+        )
+    elif query.data == "cover":
+        await query.message.edit(
+            Translator().translate("**Select a Type**", dest=Config.LANG).text,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton(text=Translator().translate("COVER", dest=Config.LANG).text, callback_data="cover")],
                 ]
             ),
         )
     elif query.data == "circle":
         await query.message.edit_text(
-            "**Select required mode**",
+            Translator().translate("**Select required mode**", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="WITH BG", callback_data="circlewithbg"
+                            text=Translator().translate("WITH BG", dest=Config.LANG).text, callback_data="circlewithbg"
                         ),
                         InlineKeyboardButton(
-                            text="WITHOUT BG", callback_data="circlewithoutbg"
+                            text=Translator().translate("WITHOUT BG", dest=Config.LANG).text, callback_data="circlewithoutbg"
                         ),
                     ]
                 ]
@@ -237,16 +249,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "border":
         await query.message.edit(
-            "**Select Border**",
+            Translator().translate("**Select Border**", dest=Config.LANG).text,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="🔴 RED 🔴", callback_data="red"),
-                        InlineKeyboardButton(text="🟢 Green 🟢", callback_data="green"),
+                        InlineKeyboardButton(text=Translator().translate("🔴 RED 🔴", dest=Config.LANG).text, callback_data="red"),
+                        InlineKeyboardButton(text=Translator().translate("🟢 Green 🟢", dest=Config.LANG).text, callback_data="green"),
                     ],
                     [
-                        InlineKeyboardButton(text="⚫ Black ⚫", callback_data="black"),
-                        InlineKeyboardButton(text="🔵 Blue 🔵", callback_data="blue"),
+                        InlineKeyboardButton(text=Translator().translate("⚫ Black ⚫", dest=Config.LANG).text, callback_data="black"),
+                        InlineKeyboardButton(text=Translator().translate("🔵 Blue 🔵", dest=Config.LANG).text, callback_data="blue"),
                     ],
                 ]
             ),
@@ -319,6 +331,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "box":
             await box_blur(client, query.message)
+
+        elif query.data == "cover":
+            await add_cover(client, query.message)
 
         elif query.data == "gas":
             await g_blur(client, query.message)
