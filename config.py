@@ -17,7 +17,8 @@ class Config(object):
     # Enable or disable private bot
     PRIVATE = True
 
-    # Add id without @ only users that are in this list are allowed to use the bot
+    # Add id without @
+    # if PRIVATE is True only users that are in this list are allowed to use the bot
     USERNAMES = ["", ]
 
     # Add your language
